@@ -1,0 +1,22 @@
+You've learned a lot about web development so far. I want you to take a moment to write down your thoughts about web development here. Answer the following questions:
+  * What new skills have you learned?
+  * What has been easy?
+  * What has been difficult?
+  * How have you used the problem solving strategies from the first project to overcome challenges so far?
+
+---
+
+Your response goes here!
+
+With the four lessons covered so far, I have learned the basic boiler plate html to create a website and how to represent
+the data structure as similar to a pedigree chart in biology. I have also learned to better use pyCharm for my needs in this class.
+The most novel thing so far in my studies since I have some prior experience with html, is the <figure> tags and the figcaptions.
+
+I think so far most of the topics have been very easy. The ability to search up how to do things on the internet is a key skill
+and at the same time the most difficult part of the exercises as wording becomes crucial to finding the correct or best solution
+to your problem.
+
+The first project has shown me the truth in one of the earlier videos that a significant portion of our development careers will be
+referencing other sources on how to do things and the idea that every problem has more than one solution. In this way, I actively
+search for solutions from many different sources in order expand my techniques as well as gain greater understanding of
+the tools I am using.
