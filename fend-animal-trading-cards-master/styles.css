@@ -1,0 +1,28 @@
+/* add your CSS here */
+.content {
+    padding: 10px 10px;
+    margin: 10px 10px;
+    width: 300px
+}
+.border {
+    border: 1px solid #cccccc;
+}
+.shadow {
+    -webkit-box-shadow: 7px 7px 3px 0 px rgb(200, 200, 200);
+    -moz-box-shadow: 7px 7px 3px 0 px rgb(200, 200, 200);
+    box-shadow: 7px 7px 3px 0px rgb(200, 200, 200);
+}
+.interesting-facts {
+    padding: 10px 10px;
+}
+.raven-img {
+    margin-left: 0px;
+    padding-left:0px;
+    width: 300;
+    height:auto;
+}
+ul {
+    list-style-type:none;
+    padding: 0px;
+    margin: 0px;
+}
