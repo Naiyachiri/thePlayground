@@ -1,12 +1,13 @@
 body {
     text-align: center;
+    background-color: #4d7cad;
 }
 
 h1 {
     font-family: Aladin;
     font-size: 70px;
     margin: 0.2em;
-    color: deepskyblue;
+    color: #2fff43;
 }
 
 h2 {
