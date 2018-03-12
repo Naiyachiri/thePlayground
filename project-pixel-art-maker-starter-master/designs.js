@@ -1,4 +1,6 @@
-//TODO : Implement mouseover coloring of pixels, move dom selectors to top of code, use $variable names, use const, generate a variable which is appended rather than a loop appending directly to DOM elements
+/*
+* /TODO : Implement mouseover coloring of pixels, move dom selectors to top of code, use $variable names, use const, generate a variable which is appended rather than a loop appending directly to DOM elements
+* */
 
 //DOM selectors with JQUERY
 const $colorPicker = $('#colorPicker');
@@ -7,7 +9,7 @@ const $borderPicker = $('#borderPicker');
 const $inputHeight = $('#inputHeight');
 const $inputWidth = $('#inputWidth');
 const $sizePicker = $('#sizePicker');
-
+const $pixelCanvas = $('#pixelCanvas');
 // function declarations
 function handleColorPick(event){ // event handler for color well
   $colorPicker.change(function (event){
@@ -77,14 +79,14 @@ $colorPicker.click(handleColorPick(event)); // setting up listener for colorPick
 
 $canvasPicker.click(handleCanvasPick(event)); // setting up listener for canvasPicker
 
-$('#borderPicker').click(handleBorderPick(event));
+$borderPicker.click(handleBorderPick(event));
 
-$('#inputHeight').click(handleInputHeight(event)); // event listener for height
+$inputHeight.click(handleInputHeight(event)); // event listener for height
 
-$('#inputWidth').click(handleInputWidth(event)); // event listener for width
+$inputWidth.click(handleInputWidth(event)); // event listener for width
 
 // When size is submitted by the user, call makeGrid()
-$('#sizePicker').submit(function(event){
+$sizePicker.submit(function(event){
   event.preventDefault(); // prevents page from refreshing
   makeGrid(); // calls our function to generate our canvas
   setPixelBorder(); // sets border of the grid (required because make grid wipes previous grid)
@@ -99,15 +101,15 @@ function makeGrid() {
   var rowStart = "<tr>"; // opening row tag
   var rowEnd = "</tr>";//closing row tag
     // <td id='pixel[row][column]'></td>
-  $('#pixelCanvas').html(''); // clears canvas
+  $pixelCanvas.html(''); // clears canvas
   for (var i = 0; i < height; i++){ // create each pixel on canvas
-    $('#pixelCanvas').append(rowStart);
+    $pixelCanvas.append(rowStart);
     for(var x = 0; x < width; x++){
       var id = "r"+i+"c"+x; // determines each pixel's id
       var column = "<td class='pixel' id="+ id +"></td>"; // basic output to create each td element
-      $('#pixelCanvas').append(column);
+      $pixelCanvas.append(column);
     }
-    $('#pixelCanvas').append(rowEnd);// end row
+    $pixelCanvas.append(rowEnd);// end row
     $('td').css('background-color', $canvasPicker.attr("value")); // sets default pixel colors
   }
   $(document).ready(function(){ //makes sure DOMs are loaded before we assign the event listener

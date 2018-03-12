@@ -13,13 +13,15 @@
     box-shadow: 7px 7px 3px 0px rgb(200, 200, 200);
 }
 .interesting-facts {
-    padding: 10px 10px;
+    padding: 10px;
 }
 .raven-img {
     margin-left: 0px;
     padding-left:0px;
-    width: 300;
     height:auto;
+    img {
+      width: 300px;
+    }
 }
 ul {
     list-style-type:none;
