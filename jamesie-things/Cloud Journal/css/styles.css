@@ -1,0 +1,26 @@
+body {
+    background-color: azure;
+}
+
+.left-tool-bar {
+    color: white;
+    display: block; /*makes buttons appear vertically*/
+}
+.button-resize {
+    height: 35px;
+    width: 35px;
+}
+.btn {
+    width:100%;
+}
+#main-canvas {
+    width: 100%;
+    height: auto;
+    background-color: bisque;
+}
+hr {
+    width: 80%;
+}
+h1 {
+    text-align: center;
+}

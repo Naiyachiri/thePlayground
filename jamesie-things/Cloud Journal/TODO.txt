@@ -1,0 +1,11 @@
+MAIN TOPICS:
+
+ART and PROGRAMMING
+
+The left side tool bar could be popout depending on window resolution?
+
+
+right side similar responsiveness
+
+
+Middle should basically be a pad for writing etc on

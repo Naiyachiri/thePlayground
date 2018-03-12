@@ -1,0 +1,21 @@
+body {
+    background-color: black;
+    color: white;
+}
+.top-nav {
+    margin: auto;
+    text-align: center;
+}
+#center-left-blog {
+    width: 65%;
+    float: left;
+}
+#center-right-history {
+    width: 35%;
+    float: right;
+    background: bisque;
+    text-align: center;
+}
+.no-show-bullets {
+    list-style-type: none;
+}

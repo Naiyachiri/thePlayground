@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cloud Journal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+<div class="container-fluid d-flex h-100">
+    <div class="t"></div>
+<!-- left tool bar -->
+    <div class="row">
+        <div class="left-tool-bar col-sm-2 justify-content-center align-self-center">
+            <!-- remember it button (post)-->
+            <button type="button" class="btn btn-outline-primary" id="remember-it-button"> Remember it! <img
+                    src="img/remember-it-icon-edit.png" alt="test icon" class="button-resize"></button>
+            <!-- Picture it button  (adds picture) -->
+            <button type="button" class="btn btn-outline-primary" id="picture-it-button"> Picture it! <img
+                    src="img/picture-it-icon-edit.png" alt="test icon" class="button-resize"></button>
+            <!-- Doodle it button (opens a drawing tool) -->
+            <button type="button" class="btn btn-outline-primary" id="doodle-it-button"> Doodle it! <img
+                    src="img/doodle-it-icon-edit.png" alt="test icon" class="button-resize"></button>
+            <!-- Share it button (opens social media linking)-->
+            <button type="button" class="btn btn-outline-warning" id="share-it-button"> Share it! <img
+                    src="img/share-it-icon-edit.png" alt="test icon" class="button-resize"></button>
+            <!-- Remove it button (clears canvas, opens are you sure)-->
+            <button type="button" class="btn btn-outline-danger" id="remove-it-button"> Remove it! <img
+                    src="img/remove-it-icon-edit.png" alt="test icon" class="button-resize"></button>
+        </div>
+
+        <!-- idea medium -->
+        <div class="main-medium col-sm-6 justify-content-center align-self-center">
+            <div id="main-canvas">
+                <h1> BLOG CONTENTS</h1>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum autem in quo sapienter
+                dicimus, id a primo rectissime dicitur. Quicquid enim a sapientia proficiscitur, id continuo debet expletum esse
+                omnibus suis partibus; Maximas vero virtutes iacere omnis necesse est voluptate dominante. <b>Egone quaeris,
+                    inquit, quid sentiam?</b> Quodsi ipsam honestatem undique pertectam atque absolutam. <a
+                        href="http://loripsum.net/" target="_blank">Sed ad bona praeterita redeamus.</a> Quare attende, quaeso.
+                Duo Reges: constructio interrete. <i>Videamus animi partes, quarum est conspectus illustrior;</i> <a
+                        href="http://loripsum.net/" target="_blank">Tu quidem reddes;</a></p>
+                <p>At ille non pertimuit saneque fidenter: Istis quidem ipsis verbis, inquit; Estne, quaeso, inquam, sitienti in
+                    bibendo voluptas? Etiam inchoatum, ut, si iuste depositum reddere in recte factis sit, in officiis ponatur
+                    depositum reddere; Nec vero intermittunt aut admirationem earum rerum, quae sunt ab antiquis repertae, aut
+                    investigationem novarum. Ita relinquet duas, de quibus etiam atque etiam consideret. Itaque contra est, ac
+                    dicitis; Ea, quae dialectici nunc tradunt et docent, nonne ab illis instituta sunt aut inventa sunt? At iam
+                    decimum annum in spelunca iacet. </p>
+                <p>Ab hoc autem quaedam non melius quam veteres, quaedam omnino relicta. Diodorus, eius auditor, adiungit ad
+                    honestatem vacuitatem doloris. At iam decimum annum in spelunca iacet. <i>Torquatus, is qui consul cum
+                        Cn.</i> Aliter homines, aliter philosophos loqui putas oportere? Stoici autem, quod finem bonorum in una
+                    virtute ponunt, similes sunt illorum; Cuius similitudine perspecta in formarum specie ac dignitate transitum
+                    est ad honestatem dictorum atque factorum. Si enim ita est, vide ne facinus facias, cum mori suadeas. Quod
+                    si ita se habeat, non possit beatam praestare vitam sapientia. At iam decimum annum in spelunca iacet. </p>
+                <time datetime="2018-3-4 14:18">Posted at 2:18 PM EST on 3/4/2018.</time>
+            </div>
+        </div>
+
+        <!--  right side profile blurb-->
+        <div class="right-profile-blurb col-sm-3 justify-content-center align-self-center">
+            <h1> PROFILE BLURB <a href="#"><img src="img/sample-profile.png" alt="sample profile template"></a></h1>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eaedem res maneant alio modo. Graece donan,
+                Latine voluptatem vocant. Deinde disputat, quod cuiusque generis animantium statui deceat extremum. <a
+                        href="http://loripsum.net/" target="_blank">Duo Reges: constructio interrete.</a></p>
+            <p><b>Nam Pyrrho, Aristo, Erillus iam diu abiecti.</b> Non dolere, inquam, istud quam vim habeat postea
+                videro; <b>Utilitatis causa amicitia est quaesita.</b></p>
+
+            <!-- right side post history//log -->
+            <div class="post-history">
+                <h1> POST HISTORY </h1>
+                <hr>
+                <ol>
+                    <li>
+                        <a href="#"><time datetime="2018-3-4 12:00">March 4, 2018 at 12:00PM EST :</time></a>
+                        Aut haec tibi, Torquate, sunt vituperanda aut patrocinium voluptatis repudiandum.</li>
+                    <li>
+                        <a href="#"><time datetime="2018-3-4 12:00">March 4, 2018 at 12:00 EST</time></a>
+                        Suo enim quisque studio maxime ducitur.</li>
+                    <li>
+                        <a href="#"><time datetime="2018-3-4 12:11">March 4, 2018 at 12:11 EST :</time></a>
+                        Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus.</li>
+                    <li>
+                        <a href="#"><time datetime="2018-3-4 12:22">March 4, 2018 at 12:22 EST :</time></a>
+                        Si alia sentit, inquam, alia loquitur, numquam intellegam quid sentiat;</li>
+                    <li>
+                    <a href="#"><time datetime="2018-3-4 12:34">March 4, 2018 at 12:34 EST :</time></a>
+                    Hoc mihi cum tuo fratre convenit.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
