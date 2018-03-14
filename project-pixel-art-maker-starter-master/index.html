@@ -5,29 +5,61 @@
     <title>Pixel Art Maker!</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aladin">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- script to convert to a png from: codepedia  -->
+    <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+
+
 </head>
 <body>
-    <h1>Lab: Pixel Art Maker</h1>
+<h1>Lab: Pixel Art Maker</h1>
 
-    <h2>Choose Grid Size</h2>
-    <form id="sizePicker">
-        <label for="inputHeight">Grid Height:</label>
-        <input type="number" id="inputHeight" name="height" min="1" max="30" value="1" required>
-        <label for="inputWidth">Grid Width:</label>
-        <input type="number" id="inputWidth" name="width" min="1" max="30" value="1" required>
-        <input type="submit">
-    </form>
-    <label for="colorPicker"><h2>Pick A Color</h2></label>
-    <input type="color" id="colorPicker" value="#000000">
-    <label for="canvasPicker"><h2>Pick your Secondary Color</h2></label>
-    <input type="color" id="canvasPicker" value="#ffffff">
-    <label for="borderPicker"><h2>Pick your border!</h2></label>
-    <input type="color" id="borderPicker" value="#000000">
+<h2>Choose Grid Size</h2>
+<form id="sizePicker">
+    <label for="inputHeight">Grid Height:</label>
+    <input type="number" id="inputHeight" name="height" min="1" value="10">
+    <label for="inputWidth">Grid Width:</label>
+    <input type="number" id="inputWidth" name="width" min="1" value="10">
+    <input type="submit">
+</form>
+<br>
+<!--
 
-    <h2>Design Canvas</h2>
-    <table id="pixelCanvas">
-    </table>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="designs.js"></script>
+
+
+ -->
+<div class="canvas-tools">
+    <div class="colorPicker-style">
+        <label for="colorPicker"> Pick A Color <br></label>
+        <input type="color" id="colorPicker" value="#000000">
+    </div>
+    <div class="canvasPicker-style">
+        <label for="canvasPicker"> Pick your Secondary Color <br></label>
+        <input type="color" id="canvasPicker" value="#ffffff">
+    </div>
+    <div class="borderPicker-style">
+        <label for="borderPicker"> Pick your border <br></label>
+            <input type="color" id="borderPicker" value="#000000">
+    </div>
+</div>
+
+
+<h2>Design Canvas</h2>
+
+<div id="html-content-holder">
+    <table class="canvas" id="pixelCanvas"></table>
+</div>
+<br>
+<input id="btnPrev" type="button" class='button' value="Preview"/>
+<button id="download" class='button' href="#"> Download </button>
+
+<div id="prev">
+    <br>
+</div>
+<div id="previewImage">
+</div>
+<br>
+<script src="designs.js"></script>
 </body>
 </html>
