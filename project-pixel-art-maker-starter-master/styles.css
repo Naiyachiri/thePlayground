@@ -77,3 +77,24 @@ input[type=number] {
     border-radius: 1px;
     text-decoration: none;
 }
+
+#footer {
+    background-color: #0E1116;
+    color: white;
+    border-top: 2px solid blue;
+    text-align: center;
+    padding-top: 20px;
+    width: 100%;
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+#footer > p {
+    vertical-align: center;
+}
+
+#footer > a {
+    color: black;
+}
