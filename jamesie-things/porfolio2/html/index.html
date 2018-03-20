@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Bui Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="container-fluid"> <!-- quick and dirty with bootstrap 4 -->
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="top-nav"> <!-- adapted from bootstrap 4 -->
+        <!-- Navbar | About (qualifications) | Projects (codepen, github, linkdin) | Contact Me-->
+        <a class="navbar-brand " href="#">James Bui</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> About <span  class="sr-only">(current)</span> </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Projects
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <h6 class="dropdown-header"> FreeCodeCamp projects </h6>
+                        <a class="dropdown-item" href="#">Project 1</a>
+                        <a class="dropdown-item" href="#">Project 2</a>
+                        <a class="dropdown-item" href="#">Project 3</a>
+                        <a class="dropdown-item" href="#">Project 4</a>
+                        <a class="dropdown-item" href="#">Project 5</a>
+                        <a class="dropdown-item" href="#">Project 6</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header"> Growing with Google 18' - Udacity </h6>
+                        <a class="dropdown-item" href="#">Another topic</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Contact Me</a>
+                </li>
+            </ul>
+        </div>
+    </nav><!-- NAVBAR -->
+
+    <div class="justify-content-center container-fluid">
+        <div class="row" id="about-section">
+            <h3> Background: </h3>
+            <p> I have a bachelor's of science in biology with a pre-medicine focus. I worked in the healthcare industry for about 3 years after graduation. I did not enjoy it as much as I would have liked, so I changed careers. Now I am taking courses of web development and programming in hopes of taking advantage of the creative freedoms allowed by the profession. Below are some of my projects. I am familiar with HTML, CSS, JS, jQuery, and Bootstrap 4.</p>
+            <!-- About section -->
+        </div>
+    </div>
+    <div class="container justify-content-center" id="project-section"> <!-- Projects (note: the rows for BS4 require a container to be used)-->
+        <div class="row justify-content-center" id="udacity-projects-section">
+            <div class="row">
+                <h3> Udacity's Growing with Google Challenge </h3>
+            </div>
+            <div class="row mb-5">
+                <div class="col-sm">
+                    <h5> Animal Trading Card</h5>
+                    <a href="https://codepen.io/naiyachiri/full/MQWBBg/">
+                        <img class="project-thumbnail"
+                             src="https://codepen.io/oknoblich/pen/MQWBBg/image/small.png"
+                             alt="a thumbnail of the animal trading card">
+                    </a>
+                </div>
+                <div class="col-sm">
+                    <h5> Pixel Art Maker </h5>
+                    <a href="https://codepen.io/naiyachiri/full/OQjybN/">
+                        <img class="project-thumbnail"
+                             src="https://codepen.io/oknoblich/pen/OQjybN/image/small.png"
+                             alt="a thumbnail of the pixel art maker">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="row">
+                <h3> FreeCodeCamp's Front-End Developer Certification</h3>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <h5> Twitch.tv following tracker application</h5>
+                    <a href="https://codepen.io/naiyachiri/full/mXPXQz/">
+                        <img class="project-thumbnail"
+                             src="https://codepen.io/oknoblich/pen/mXPXQz/image/small.png"
+                             alt="a thumbnail of the Twitch.tv application"></a>
+                </div>
+                <div class="col-sm">
+                    <h5> Simon Says! Game </h5>
+                    <a href="https://codepen.io/naiyachiri/full/wPRKMM/">
+                        <img class="project-thumbnail"
+                             src="https://codepen.io/oknoblich/pen/wPRKMM/image/small.png"
+                             alt="a thumbnail of the Simon Says! game">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <h5> Wikipedia Search Engine</h5>
+                    <a href="https://codepen.io/naiyachiri/full/jLpBEV/">
+                        <img class="project-thumbnail"
+                             src="https://codepen.io/oknoblich/pen/jLpBEV/image/small.png"
+                             alt="a thumbnail of the Wiki search engine"></a>
+                </div>
+                <div class="col-sm">
+                    <h5> Location-detecting Weather forecaster </h5>
+                    <a href="https://codepen.io/naiyachiri/full/PKeYQX/">
+                        <img class="project-thumbnail"
+                             src="https://codepen.io/oknoblich/pen/PKeYQX/image/small.png"
+                             alt="a thumbnail of Weather forecasting application">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="contact-me-section">
+        <!-- contact form -->
+    </div>
+</div>
+</body>
+</html>

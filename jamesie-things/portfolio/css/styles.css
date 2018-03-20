@@ -1,21 +1,28 @@
 body {
-    background-color: black;
-    color: white;
+    background: url("manouchehr-hejazi-308120-unsplash1920.jpg") fixed no-repeat; /*BG from Photo by Manouchehr Hejazi on Unsplash (https://unsplash.com/photos/QeoXkIesiCo)*/
+
 }
+
 .top-nav {
     margin: auto;
     text-align: center;
+    padding: 5px;
 }
-#center-left-blog {
-    width: 65%;
+#center-left-history {
+    width: 28%;
+    padding: 5px;
     float: left;
+    background: rgba(237, 243, 248, 0.7);
 }
-#center-right-history {
-    width: 35%;
+#center-right-blog-post {
+    width: 68%;
     float: right;
-    background: bisque;
     text-align: center;
+    background-color: rgba(125, 142, 126, 0.7);
 }
 .no-show-bullets {
     list-style-type: none;
+}
+.rounded-border {
+    border-radius:5px;
 }
