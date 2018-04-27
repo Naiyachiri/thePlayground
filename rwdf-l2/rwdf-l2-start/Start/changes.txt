@@ -1,0 +1,14 @@
+added css to a tags
+min-height 48px;
+min-width: 48px;
+
+added in header tag
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+removed css
+float properties to hero/top news and sportscore/weather
+
+added css to hero/top news and sportscore/weather
+replaced width with min-width
+
+changed all fixed widths to relative (100% unless it was a child element of a 100% width'd tag)
