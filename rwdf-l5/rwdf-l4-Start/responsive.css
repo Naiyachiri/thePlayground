@@ -1,0 +1,142 @@
+@media screen and (max-width:500px) {
+    body {
+        display:flex;
+        flex-wrap:wrap;
+        height:300px;
+        max-width:1200px;
+    }
+    header {
+        order:0;
+        width:100%;
+    }
+    .header__title {
+        font-size:1.5em;
+        margin-top:1em;
+    }
+    .header__logo {
+        height:32px;
+    }
+    .menu {
+        font-size:2em;
+        cursor:pointer;
+    }
+    nav {
+        height:100%;
+        width:360px;
+        position:fixed;
+        transform: translate(0,-360px);
+        transition: transform 0.3s ease;
+    }
+    .open {
+        background: #727072;
+        height:75px;
+    }
+    .open a {
+        color: white;
+    }
+    .scores__table {
+        font-size: 1.25em;
+    }
+    .truncated-block {
+        /* adapted from http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/ */
+        overflow:hidden;
+        position:relative;
+        font-size:1.25em;
+        line-height:1.2em;
+        max-height:3.6em;
+        text-align:justify;
+        margin-right:-1em;
+        padding-right: 1em;
+    }
+    .truncated-block:before{
+        content:'...';
+        position:absolute;
+        right:0;
+        bottom: 0;
+    }
+    .truncated-block:after {
+        content:'';
+        position: absolute;
+        right:0;
+        width:1em;
+        height: 1em;
+        margin-top:0.2em;
+        background:inherit;
+    }
+    .snippet__thumbnail {
+        display: none;
+    }
+}
+@media screen and (min-width: 400px) {
+    .header__logo {
+        height: 40px;
+    }
+    .header__title {
+        font-size:2em;
+    }
+    .menu {
+        font-size: 2em;
+        margin: 0.75em 0.25em;
+    }
+    .weather__location {
+        font-size:2em;
+    }
+}
+
+@media screen and (min-width:501px) and (max-width:780px){
+    .header__title{
+        font-size: 2.5em;
+        margin: 1em 0.25em;
+    }
+    .header__logo{
+        height: 56px;
+    }
+    .menu {
+        display: none;
+    }
+}
+
+@media screen and (min-width:781px) {
+    body {
+        margin-left:auto;
+        margin-right:auto;
+    }
+    header {
+        width:100%;
+        margin: 0;
+        order:0;
+    }
+    .header__title{
+        font-size: 4em;
+        margin: 0.5em 0.25em;
+    }
+    .header__logo{
+        height: 72px;
+    }
+    .menu {
+        display: none;
+    }
+    nav, main {
+        width:90%;
+    }
+    .hero {
+        width:60%;
+        order:2;
+    }
+    .top-news {
+        order:3;
+        width:40%;
+    }
+    .scores {
+        order:4;
+        width:50%;
+    }
+    .weather {
+        order:5;
+        width:50%;
+    }
+    .recent-news {
+        order:6;
+        width:100%;
+    }
+}
