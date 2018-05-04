@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<div class="container-fluid"> <!-- quick and dirty with bootstrap 4 -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="top-nav"> <!-- adapted from bootstrap 4 -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="top-nav"> <!-- adapted from bootstrap 4 https://getbootstrap.com/docs/4.0/layout/overview/ -->
         <!-- Navbar | About (qualifications) | Projects (codepen, github, linkdin) | Contact Me-->
         <a class="navbar-brand " href="#">James Bui</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,18 +52,19 @@
             </ul>
         </div>
     </nav><!-- NAVBAR -->
-    <div class="container-fluid">
+    <main>
+        <section class="landing-zone">
         <img src="../css/hannah-wei-84287-unsplash.jpg"
              alt="coffee with a kitty latte art"
              id="landing-image"/>
-    </div>
-    <div class="justify-content-center container-fluid">
-        <div class="row" id="about-section">
+        </section>
+    <section class="justify-content-center container-fluid" id="about-section">
+        <div class="row">
             <h3> Background: </h3>
             <p> I have a bachelor's of science in biology with a pre-medicine focus. I worked in the healthcare industry for about 3 years after graduation. I did not enjoy it as much as I would have liked, so I changed careers. Now I am taking courses of web development and programming in hopes of taking advantage of the creative freedoms allowed by the profession. Below are some of my projects. I am familiar with HTML, CSS, JS, jQuery, and Bootstrap 4.</p>
             <!-- About section -->
         </div>
-    </div>
+    </section>
     <div class="container justify-content-center" id="project-section"> <!-- Projects (note: the rows for BS4 require a container to be used)-->
 
         <div class="row justify-content-center" id="udacity-projects-section">
@@ -165,9 +165,10 @@
             </div>
         </div>
     </div>
+</main>
+<footer> <!-- contact form -->
     <div class="row" id="contact-me-section">
-        <!-- contact form -->
     </div>
-</div>
+</footer>
 </body>
 </html>
