@@ -58,7 +58,7 @@ Navbar CSS
 *
 *
  */
-#navbar {
+.navbar {
     background-color: rgb(191, 219, 247, 1);
     display: block;
     height: 72px;    
@@ -66,22 +66,22 @@ Navbar CSS
     transform: translate( 0px, -144px);
     transition: transform 0.3s ease;
     width: 100%;
+    z-index: -1;
 }
 .navbar-links {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
 .navbar-items {
     display: inline-block;
     font-size: 18px;
     height: 100%;
     line-height: 72px;
-    min-width: 24%;
+    min-width: 20%;
     text-align: center;
-    
-    
 }
 .navbar-items a {
     color: #000;
@@ -95,6 +95,7 @@ Navbar CSS
 }
 .open { 
     transform: translate(0px, 0px);
+    transition: transform 0.3s ease;
     z-index: 5;
 }
 /* 
