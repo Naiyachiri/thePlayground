@@ -1,0 +1,111 @@
+body {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+h3 {
+    font-size: 2em;
+    margin: 0px;
+}
+a {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+/* 
+*
+*
+Header CSS
+*
+*
+ */
+.header {
+    width:100%;
+    background-color:  #BFDBF7;
+    border-bottom: 2px solid black;
+    display: block;
+    height:72px;
+}
+.header-inner {
+    min-height: 48px;
+}
+.header-logo {
+    display: inline-block;
+    height: 72px;
+    vertical-align: middle;
+}
+.header-title {
+    display: inline-block;
+    font-family: 'Dancing Script', cursive;
+    vertical-align: middle;
+}
+.header-bb {
+    cursor: pointer;
+    float: right;
+    padding: 15px;
+    vertical-align: middle;
+}
+
+/* 
+*
+*
+Navbar CSS
+*
+*
+ */
+#navbar {
+    background-color: rgb(191, 219, 247, 1);
+    display: block;
+    height: 72px;    
+    position: fixed;
+    transform: translate( 0px, -144px);
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+.navbar-links {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.navbar-items {
+    display: inline-block;
+    font-size: 18px;
+    height: 100%;
+    line-height: 72px;
+    min-width: 24%;
+    text-align: center;
+    
+    
+}
+.navbar-items a {
+    color: #000;
+    padding: 0.45em;
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar-items a:hover {
+    text-decoration: underline;
+    color: #00f;
+}
+.open { 
+    transform: translate(0px, 0px);
+    z-index: 5;
+}
+/* 
+*
+*
+MAIN
+*
+*
+ */
+
+main {
+    width:100%;
+    display:block;
+}
