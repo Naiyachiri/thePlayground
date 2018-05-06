@@ -1,3 +1,9 @@
+# TODO
+
+* use fluid box to generate a fluid responsive website based on the 3 devices
+* use scrollify to scroll page for us
+* 
+
 # Porfolio Mockup
 
 This is my submission for project 1 of the Udacity Front-End Developer Nanodegree.

@@ -1,12 +1,13 @@
 body {
+    background: linear-gradient(to bottom right, blue, lightblue);
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: 'Roboto', sans-serif;
 }
 
 h3 {
@@ -28,7 +29,7 @@ Header CSS
  */
 .header {
     width:100%;
-    background-color:  #BFDBF7;
+    background-color:  rgb(191, 219, 247, 0);
     border-bottom: 2px solid black;
     display: block;
     height:72px;
@@ -45,6 +46,7 @@ Header CSS
 }
 
 .header-title {
+    color: rgb(250, 250, 250);
     display: inline-block;
     font-family: 'Dancing Script', cursive;
     vertical-align: middle;
@@ -133,3 +135,54 @@ main {
     background: rgb(255, 255, 255, 0.25);
     width:25px;
 }
+
+.about-view {
+    background: rgb(190, 128, 11);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.title {
+    color: rgb(255, 255, 255, 1);
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 1em 1em;
+    text-align: center;
+}
+
+.breakpoint {
+    width: 50%;
+}
+
+.about-desc {
+    text-align: justify;
+    padding: 5px;
+}
+
+.project-title {
+    background-color: rgb(255, 255, 255, 0);
+    padding: 0.65em 0.5em;
+    margin:0;
+    text-align: center;
+}
+
+.project-thumbnail {
+    width: 100%;
+}
+
+/* 
+*
+*
+contact form
+*
+*
+ */
+ .contact-form {
+     width: 100%;
+ }
+
+ .contact-form-title {
+     padding: 0;
+     margin: 0;
+     text-align: center;
+ }
