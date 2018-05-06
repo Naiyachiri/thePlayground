@@ -35,7 +35,7 @@ Header CSS
 }
 
 .header-inner {
-    min-height: 48px;
+    min-height: 48px;    
 }
 
 .header-logo {
@@ -120,6 +120,16 @@ MAIN
  */
 
 main {
-    width:100%;
-    display:block;
+    display: block;
+    width: 100%;
+}
+
+.landing-view {
+    min-height: 250px;
+    width: 100%;
+}
+
+.camera-icon {
+    background: rgb(255, 255, 255, 0.25);
+    width:25px;
 }
