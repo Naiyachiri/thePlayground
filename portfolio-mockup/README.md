@@ -1,8 +1,7 @@
 # TODO
 
-* use fluid box to generate a fluid responsive website based on the 3 devices
 * use scrollify to scroll page for us
-* 
+* follow Buttons for Github, codepen, linkin
 
 # Porfolio Mockup
 
