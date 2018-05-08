@@ -54,6 +54,19 @@
         left: 80%;
     }
 
+    .projects-udacty > .project-title {
+        width: 45%;
+        margin-left: 22px;
+    }
+
+    .projects-freecodecamp > .project-title {
+        width: 45%;
+    }
+
+    .project-title {
+        justify-content: center;
+    }
+
     .p1-fend-trading-card {
         width: 40%;
     }
