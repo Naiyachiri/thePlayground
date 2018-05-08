@@ -36,23 +36,29 @@
         </section>
 
         <section class="about-view">
-            <article class="about-desc"> 
+            <article class="about-desc">
                 <h4 class="title"> James's Background </h4>
                 <p class="about-text">
                     I have a bachelor's of science in biology with a pre-medicine focus. I worked in the healthcare industry for about 3 years after graduation. I did not enjoy it as much as I would have liked, so I changed careers.
-                <br>
-                    Now I am taking courses of web development and programming in hopes of taking advantage of the creative freedoms allowed by the profession. Below are some of my projects. I am familiar with HTML, CSS, JS, jQuery, and responsive design using Bootstrap and flexbox.
+                    Now, I am taking courses of web development and programming in hopes of taking advantage of the creative freedoms allowed by the profession. Below are some of my projects.
                 </p>
         </section>
 
         <section class="skills-view">
-            <!-- TODO: skill cards HTML5, CSS, JS -->
+            <h4 class="skills-title"> Skills: </h4>
+            <div class="skills-card-holder">
+                <container class="skill-card"> HTML </container>
+                <container class="skill-card"> CSS </container>
+                <container class="skill-card"> JS </container>
+                <container class="skill-card"> jQuery </container>
+                <container class="skill-card"> Responsive Design </container>
+                <container class="skill-card"> Bootstrap </container>
+            </div>
         </section>
 
         <section class="projects-scroll">
             <article class="projects-udacity">
-                <h4 class="title"> Udacity's Growing with Google Challenge 
-                    <hr class="breakpoint">
+                <h4 class="title"> Udacity's Growing with Google Challenge
                 </h4>
                 <div class="p1-fend-trading-card">
                         <h5 class="project-title"> Animal Trading Card</h5>
@@ -73,7 +79,6 @@
             </article>
             <article class="projects-freecodecamp">
                     <h4 class="title"> FreeCodeCamp's Front-End <a href="https://www.freecodecamp.org/naiyachiri/front-end-certification" target="_blank" class="fcc-certification">Certification</a>
-                        <hr class="breakpoint">
                     </h4>
                     <div class="p3-twitchtv-tracker">
                         <h5 class="project-title"> Twitch.tv following tracker application</h5>
@@ -140,22 +145,18 @@
                         </div>
             </article>
         </section>
-        
+
     </main>
     <footer>
         <section class="contact-form">
             <h6 class="contact-form-title">Leave a comment! </h3>
             <form action="mailto:buijvbio@gmail.com" method="post enctype="text/plain">
-                <label for="name"> Name: <br>
-                        <input type="text" name="name"><br>
-                </label>
-                
-                <label for="mail"> E-mail: <br>
-                        <input type="text" name="mail"><br>
-                </label>
-                
-                <label for="comment"> Comment: <br>
-                        <input type="text" name="comment" size="30"><br>
+                        <input type="text" name="name" placeholder="Type your name here." size="22">
+                        <br><br>
+                        <input type="text" name="mail" placeholder="Type your email here." size="22">
+                        <br><br>
+                        <textarea name="comment" placeholder="Leave a comment here." rows="4" cols="25"></textarea>
+                        <br><br>
                 </label>
                 <input type="submit" value="Send" class="contact-form-submit-button">
             </form>

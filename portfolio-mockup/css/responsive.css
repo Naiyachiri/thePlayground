@@ -8,10 +8,40 @@
     .header-title {
         left: 27%;
     }
+
+    .skills-card-holder {
+        flex-wrap: wrap;
+    }
+
+    .sc-1 {
+        order: 1;
+        width: 30%;
+    }
+
+    .sc-2 {
+        order: 2;
+        width: 30%;
+    }
+
+    .sc-3 {
+        order: 3;
+        width: 30%;
+    }
+
+    .sc-4 {
+        order: 4;
+        width: 40%;
+    }
+
+    .sc-5 {
+        order: 5;
+        width: 40%;
+    }
+
 }
 
 @media screen and (min-width: 501px) and (max-width: 768px) {
-    
+
     .landing-view {
         background: url(../images/duncan-kyhl-540656-unsplash-1000.jpg) no-repeat top center fixed rgb(190, 128, 11);
         height: 600px;
@@ -23,7 +53,6 @@
 
     .title {
         font-size: 1.5em;
-        padding: 0.25em;
     }
 
     .project-title {
@@ -70,40 +99,48 @@
     .p1-fend-trading-card {
         width: 40%;
     }
-    
+
     .p2-pixel-art-maker {
         width: 40%;
     }
-    
+
     .p3-twitchtv-tracker {
         width: 24%;
     }
-    
+
     .p4-simon-says-game {
         width: 24%;
     }
-    
+
     .p5-wiki-search-engine {
         width: 24%;
     }
-    
+
     .p6-location-weather-forecaster {
         width: 24%;
     }
-    
+
     .p7-tic-tac-toe {
         width: 24%;
     }
-    
+
     .p8-api-based-quote-engine {
         width: 24%;
     }
-    
+
     .p9-basic-calculator {
         width: 24%;
     }
-    
+
     .p10-pomodoro-clock {
         width: 24%;
+    }
+
+    .contact-form-title {
+        font-size: 2em;
+    }
+
+    .contact-form-submit-button {
+        font-size: 1em;
     }
 }
