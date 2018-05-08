@@ -37,7 +37,6 @@
         order: 5;
         width: 40%;
     }
-
 }
 
 @media screen and (min-width: 501px) and (max-width: 768px) {
@@ -57,6 +56,38 @@
 
     .project-title {
         font-size:1.1em;
+    }
+
+    .p3-twitchtv-tracker {
+        width: 40%;
+    }
+
+    .p4-simon-says-game {
+        width: 40%;
+    }
+
+    .p5-wiki-search-engine {
+        width: 40%;
+    }
+
+    .p6-location-weather-forecaster {
+        width: 40%;
+    }
+
+    .p7-tic-tac-toe {
+        width: 40%;
+    }
+
+    .p8-api-based-quote-engine {
+        width: 40%;
+    }
+
+    .p9-basic-calculator {
+        width: 40%;
+    }
+
+    .p10-pomodoro-clock {
+        width: 40%;
     }
 
     .contact-form {

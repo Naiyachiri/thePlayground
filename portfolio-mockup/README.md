@@ -1,8 +1,3 @@
-# TODO
-
-* use scrollify to scroll page for us
-* follow Buttons for Github, codepen, linkin
-
 # Porfolio Mockup
 
 This is my submission for project 1 of the Udacity Front-End Developer Nanodegree.
@@ -74,3 +69,10 @@ This is my submission for project 1 of the Udacity Front-End Developer Nanodegre
 * Uses 3 char hexadecimal notation where possible (ie `#fff`)
 * Code separates words in ID and class names by `-`
 * Code avoids user agent detection
+
+## TODO
+
+* use scrollify to scroll page for us
+* back to top button
+* make navbar fixed in larger resolutions
+* follow Buttons for Github, codepen, linkin
