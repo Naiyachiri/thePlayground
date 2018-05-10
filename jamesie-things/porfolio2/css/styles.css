@@ -1,0 +1,19 @@
+#landing-image {
+    height: 950px;
+    width: 100%;
+    position:fixed;
+    z-index: -99;
+
+}
+.project-thumbnail{
+    border: 3px black solid;
+    border-radius: 5px;
+    /* box shadow adapted from free tool: https://www.cssmatic.com/box-shadow */
+    -webkit-box-shadow: 9px 10px 5px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 9px 10px 5px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: 9px 10px 5px -4px rgba(0, 0, 0, 0.75);
+    margin-bottom: 5px;
+}
+#udacity-projects-section {
+    border-bottom: 3px solid black;
+}
