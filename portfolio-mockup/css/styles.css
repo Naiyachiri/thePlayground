@@ -41,7 +41,6 @@ Header CSS
     width:100%;
     background-color:  rgb(191, 219, 247, 0);
     border-bottom: 2px solid black;
-    display: block;
     height:72px;
 }
 
@@ -51,7 +50,6 @@ Header CSS
 }
 
 .header-logo {
-    display: inline-block;
     height: 72px;
     position: relative;
     vertical-align: middle;
