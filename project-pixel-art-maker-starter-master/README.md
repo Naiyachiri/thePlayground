@@ -14,3 +14,10 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 ## Contributing
 
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+
+
+## Customizations
+
+By: James Bui
+
+NOTE: In order to pass the pixel art maker lab this required the removal of the handlePixelClick feature of de-coloring pixels from primary selected color to secondary color, but I left the code there because it is an otherwise useful feature that I liked.
