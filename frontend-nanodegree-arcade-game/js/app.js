@@ -20,9 +20,8 @@ Enemy.prototype.update = function(dt) {
         this.x = 0; // resets enemy positions once they go off screen
         return;
     }
-    this.x += 200*dt; // 
-    time ++;
-    console.log(time/100);
+    this.x += 200*dt; // currently an arbitrary value - change it according to difficulty
+
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -40,17 +39,41 @@ Enemy.prototype.render = function() {
 let Player = function (){
     this.sprite = 'images/char-boy.png'
     this.x = 200; //default position at row 2
-    this.y = -25; // default position row 5
+    this.y = 400; // default position row 5
 };
 
 Player.prototype.handleInput = function(keypress) {
-    if(keypress == 'down') {
-        if(this.y <= 315) { // set lower limit to 315
-            this.y += 85;
-        } else {
-            return; // if the player has reached the bottom do nothing
-        }
-        
+    switch(keypress) {
+        case 'down':
+            if (this.y <= 315) { // set lower limit to 315
+                this.y += 85; // increment player position by 1 row
+            } else {
+                break; // if the player has reached the bottom do nothing
+            }
+            break;
+        case 'up':
+            if (this.y >= 60) {
+                this.y -= 85; // decrement player position by 1 row
+            } else {
+                break; // do nothing once top is reached
+            }
+            break;
+        case 'left':
+            if (this.x >= 100) {
+                this.x -= 100; // decrement player position by 1 column
+            } else {
+                break; // do nothing once leftside is reached
+            }
+        break;
+        case 'right':
+            if (this.x <=301) {
+                this.x +=100; // increment player position by 1 column
+            } else {
+                break; // do nothing once rightside is reached
+            }
+        break;
+        default:
+        break;
     }
 }
 
