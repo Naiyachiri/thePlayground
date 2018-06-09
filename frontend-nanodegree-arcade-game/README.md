@@ -1,12 +1,6 @@
 
 # TODO
 
-## implement victory conditions
-
-## implement defeat conditions
-
-### collision tracking
-
 ## implement a time/score system
 
 ## implement game setup ui

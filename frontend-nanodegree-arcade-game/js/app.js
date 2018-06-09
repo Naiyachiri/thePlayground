@@ -7,17 +7,33 @@ class Enemy {
         this.x = -100; // // 0, 100, 200, 300, 400, 500 (intervals of 100 per column)
         this.y = row // -25, 60, 145, 230, 315, 400  (intervals of 85 per row)
         this.difficulty = difficulty; // easy, med, hard change the speed of the enemy
+        this.speed; // initialize speed property
+        this.radius; // initialize radius property
+
+        switch(this.difficulty) { // depending on enemy difficulty, the speed and radius change
+            case 'easy':
+                this.speed = 200;
+                this.radius = 2;
+                break;
+            case 'med':
+                this.speed = 300;
+                this.radius = 3;
+                break;
+            case 'hard':
+                this.speed = 400;
+                this.radius = 5;
+                break;
+        }
     }
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images    
 };
 
 // Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-let time = 0;
+// Parameter: dt, a time delta between tick
 Enemy.prototype.update = function(dt) {
     if(this.x >= 501){
-        this.x = 0; // resets enemy positions once they go off screen
+        this.x = -25; // resets enemy positions once they go off screen
         return;
     }
     if (this.difficulty == 'easy') {
@@ -106,7 +122,7 @@ Player.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-let p1 = new Player;
+let p1 = new Player('images/char-boy.png');
 let e1 = new Enemy(60, 'med');
 let e2 = new Enemy(145, 'hard');
 let e3 = new Enemy(230);

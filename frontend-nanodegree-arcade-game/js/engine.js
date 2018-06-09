@@ -26,6 +26,7 @@ var Engine = (function(global) {
 
     canvas.width = 505;
     canvas.height = 606;
+    
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
@@ -78,23 +79,38 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
 
-    function checkCollisions(dt){
+    function checkCollisions(){
         allEnemies.forEach(function(enemy){
-            /**
-             * set minimum radius around player to pick up collision events
-             */
-            let radius = 1; // must be >=1 for collision accuracy
+
+            let radius = enemy.radius; // must be >=2 for collision accuracy because the x and y values change by increments < so without a radius it will be too specific
             let xCollision = (player.x-radius <= enemy.x && enemy.x <= player.x+radius);
             let yCollision = (player.y == enemy.y);
             if (xCollision && yCollision ){ // if the x and y positions for enemy and characters match
-                console.log('collision!'); // do collision event
+                //flash body red on death
+                document.querySelector('body').classList.add('alert-bg');
+                setTimeout(function(){
+                    document.querySelector('body').classList.remove('alert-bg');
+                }, 3000);
+
+                reset();
             }
         });
+    }
+    function checkVictory() {
+        if (player.y == -25) {
+            document.querySelector('body').classList.add('victory-bg');
+                setTimeout(function(){
+                    document.querySelector('body').classList.remove('victory-bg');
+                }, 3000);
+            console.log('Victory!');
+            reset();
+        }
     }
 
     function update(dt) {
         updateEntities(dt);
-        checkCollisions(dt);
+        checkCollisions();
+        checkVictory();
     }
 
     /* This is called by the update function and loops through all of the
@@ -176,7 +192,8 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        player.x = 200; // reset player positions on canvas
+        player.y = 400;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -188,7 +205,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png'
     ]);
     Resources.onReady(init);
 

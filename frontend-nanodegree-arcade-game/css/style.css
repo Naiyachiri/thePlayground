@@ -5,3 +5,11 @@ body {
 canvas {
     background: #000;
 }
+
+.alert-bg {
+    background: red;
+}
+
+.victory-bg {
+    background: rgb(111, 250, 111);
+}
