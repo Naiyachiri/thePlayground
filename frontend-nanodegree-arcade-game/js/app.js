@@ -6,7 +6,7 @@ class Enemy {
         this.sprite = 'images/enemy-bug.png'; // enemy sprite
         this.x = -100; // // 0, 100, 200, 300, 400, 500 (intervals of 100 per column)
         this.y = row // -25, 60, 145, 230, 315, 400  (intervals of 85 per row)
-        this.difficulty = 'easy'; // easy, med, hard
+        this.difficulty = difficulty; // easy, med, hard change the speed of the enemy
     }
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images    
@@ -20,7 +20,16 @@ Enemy.prototype.update = function(dt) {
         this.x = 0; // resets enemy positions once they go off screen
         return;
     }
-    this.x += 200*dt; // currently an arbitrary value - change it according to difficulty
+    if (this.difficulty == 'easy') {
+        this.x += 200*dt; // currently an arbitrary value - change it according to difficulty
+    } 
+    else if (this.difficulty == 'med') {
+        this.x += 300*dt;
+    }
+    else if (this.difficulty == 'hard') {
+        this.x += 400*dt;
+    }
+    
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -36,10 +45,13 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-let Player = function (){
-    this.sprite = 'images/char-boy.png'
-    this.x = 200; //default position at row 2
-    this.y = 400; // default position row 5
+class Player {
+    constructor(sprite = 'images/char-boy.png') {
+        this.sprite = sprite; // set sprite equal to inputted sprite
+        this.x = 200; //default position at row 2
+        this.y = 400; // default position row 5
+    }
+    
 };
 
 Player.prototype.handleInput = function(keypress) {
@@ -51,6 +63,7 @@ Player.prototype.handleInput = function(keypress) {
                 break; // if the player has reached the bottom do nothing
             }
             break;
+
         case 'up':
             if (this.y >= 60) {
                 this.y -= 85; // decrement player position by 1 row
@@ -58,6 +71,7 @@ Player.prototype.handleInput = function(keypress) {
                 break; // do nothing once top is reached
             }
             break;
+
         case 'left':
             if (this.x >= 100) {
                 this.x -= 100; // decrement player position by 1 column
@@ -65,6 +79,7 @@ Player.prototype.handleInput = function(keypress) {
                 break; // do nothing once leftside is reached
             }
         break;
+
         case 'right':
             if (this.x <=301) {
                 this.x +=100; // increment player position by 1 column
@@ -72,6 +87,7 @@ Player.prototype.handleInput = function(keypress) {
                 break; // do nothing once rightside is reached
             }
         break;
+
         default:
         break;
     }
@@ -91,8 +107,8 @@ Player.prototype.render = function() {
 // Place the player object in a variable called player
 
 let p1 = new Player;
-let e1 = new Enemy(60);
-let e2 = new Enemy(145);
+let e1 = new Enemy(60, 'med');
+let e2 = new Enemy(145, 'hard');
 let e3 = new Enemy(230);
 
 let player = p1;

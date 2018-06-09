@@ -1,10 +1,19 @@
 
 # TODO
 
-* implement key press handlers for player
-* implement enemy difficulty
-* implement victory conditions
-* implement defeat conditions
+## implement victory conditions
+
+## implement defeat conditions
+
+### collision tracking
+
+## implement a time/score system
+
+## implement game setup ui
+
+### character select
+
+### enemy select
 
 ### frontend-nanodegree-arcade-game
 
