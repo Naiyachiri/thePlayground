@@ -16,26 +16,29 @@ canvas {
 
 .modal-outer {
     background: rgba(77, 82, 150, 0.7);
-    display: none;
     height: 100%;
     overflow: auto;
     position: fixed;
+    visibility: hidden;
     width: 100%;
     z-index: 10;
 }
 
 .modal-content {
     background: rgb(6, 28, 88);
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
     height: 45%;
-    margin: auto;
-    width: 60%;  
+    margin: 20%;
+    width: 60%;
+    
 }
 
-.end-condition-statement {
+.modal-title {
     color: rgb(221, 188, 0);
 }
 
-.close {
+.modal-close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
@@ -43,9 +46,9 @@ canvas {
     padding-right: 30px;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
+.modal-close:hover,
+.modal-close:focus {
+    color: rgb(241, 45, 45);
     text-decoration: none;
     cursor: pointer;
 }

@@ -90,7 +90,7 @@ var Engine = (function(global) {
                  * //flash body red on death
                  * DEFEAT CONDITIONS GO HERE
                  * */
-                //player.handleDefeat();
+                player.handleEnd('defeat');
                 document.querySelector('body').classList.add('alert-bg');
                 setTimeout(function(){
                     document.querySelector('body').classList.remove('alert-bg');
@@ -99,26 +99,18 @@ var Engine = (function(global) {
             }
         });
     }
-    function displayEndScreen() {
-        // display a modal with player current score and time.
-    }
-    function handleVictory() {
-        player.score +=1;
-        //display modal
-    }
 
     function checkVictory() {
         if (player.y == -25) {
             /**
              * VICTORY CONDITIONS GO HERE
              */
-            player.score += 1; // increase player score
-            //player.handleVictory();
+            player.score ++; // increment score on victory
+            player.handleEnd('victory');
             document.querySelector('body').classList.add('victory-bg');
                 setTimeout(function(){
                     document.querySelector('body').classList.remove('victory-bg');
                 }, 3000);
-            console.log('Victory! Your score is ' + player.score);
             reset();
         }
     }

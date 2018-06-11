@@ -152,6 +152,9 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+Player.prototype.handleEnd = function(condition) {
+    showModal(condition);
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -164,9 +167,54 @@ let e3 = new Enemy(230);
 let player = p1;
 let allEnemies = [e1, e2, e3];
 
+/**
+ *  MODAL RELATED FUNCTIONS
+ * 
+ */
 
+let modalOpen = 0; // status for determining of modal is open
+function showModal(condition) {
+    modalOpen = 1;
+    document.querySelector('.modal-outer').style.visibility = 'visible';
+    updateModal(condition);
+}
 
-// This listens for key presses and sends the keys to your
+function updateModal(condition) { 
+   //basic modal target
+    const modalTitle = document.querySelector('.modal-title');
+    const modal = document.querySelector('.modal-outer');
+    const modalScore = document.querySelector('.modal-score');
+    const modalTime = document.querySelector('.modal-time');
+
+    let modalScoreMsg = "Your current score is " + player.score;
+    let modalTimeMsg = "The time elapsed was " + player.timer.time + ".";
+    let modalTitleMsg; // determines title message based on end condition passed through engine
+    if (condition == 'defeat') {
+        modalTitleMsg = "You lost! Nice try!";
+    } else {
+        modalTitleMsg = "You won! Good Job!";
+    };
+
+    modalTitle.innerHTML = modalTitleMsg; // update modal end condition msg
+    modalScore.innerHTML = modalScoreMsg; // update the modal score message
+    modalTime.innerHTML = modalTimeMsg; // update modal time message
+
+    const modalClose = document.querySelector('.modal-close');
+    const modalOuter = document.querySelector('.modal-outer');
+   //set up listeners to close modal
+
+   function handleModalClose(event) {
+       modalOpen = 0;
+       modal.style.visibility = 'hidden';
+       
+   }
+
+   modalClose.addEventListener('click', function(e){
+       handleModalClose(event);
+   });
+};
+
+// This listens for key presses and sends the keys to your character
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
@@ -176,17 +224,9 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
+    if (modalOpen == 1){ // prevents any inputs being processed when modal is open
+        return;
+    }
+
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-/**
- *  MODAL RELATED FUNCTIONS
- * 
- */
-
-(function() {
-    //basic targets
-    const modal = document.querySelector('.modal-outer');
-    const modalContent = document.querySelector('.modal-content');
-    console.log(player);
-})();
