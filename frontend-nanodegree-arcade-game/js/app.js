@@ -84,6 +84,7 @@ class Player {
 
 //use this function for the setInterval callback
 Player.prototype.incrementTime = function() {
+    console.log(this.timer.time);
     this.timer.time ++; // increments timer by 1
     return this.timer.time; // returns time value
 }
@@ -190,7 +191,7 @@ function updateModal(condition) {
     let modalTimeMsg = "The time elapsed was " + player.timer.time + ".";
     let modalTitleMsg; // determines title message based on end condition passed through engine
     if (condition == 'defeat') {
-        modalTitleMsg = "You lost! Nice try!";
+        modalTitleMsg = "You lost! Nice try!";        
     } else {
         modalTitleMsg = "You won! Good Job!";
     };
@@ -203,14 +204,17 @@ function updateModal(condition) {
     const modalOuter = document.querySelector('.modal-outer');
    //set up listeners to close modal
 
-   function handleModalClose(event) {
+   function handleModalClose(condition) {
        modalOpen = 0;
        modal.style.visibility = 'hidden';
-       
+       if (condition == 'defeat') {
+           player.start = 0; // set status to reset timer on loss
+           player.resetTime(); // fulfill timer reset
+       }
    }
 
    modalClose.addEventListener('click', function(e){
-       handleModalClose(event);
+       handleModalClose(condition);
    });
 };
 
