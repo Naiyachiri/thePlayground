@@ -86,23 +86,39 @@ var Engine = (function(global) {
             let xCollision = (player.x-radius <= enemy.x && enemy.x <= player.x+radius);
             let yCollision = (player.y == enemy.y);
             if (xCollision && yCollision ){ // if the x and y positions for enemy and characters match
-                //flash body red on death
+                /**
+                 * //flash body red on death
+                 * DEFEAT CONDITIONS GO HERE
+                 * */
+                //player.handleDefeat();
                 document.querySelector('body').classList.add('alert-bg');
                 setTimeout(function(){
                     document.querySelector('body').classList.remove('alert-bg');
                 }, 3000);
-
-                reset();
+                reset(); // reset board after loss condition
             }
         });
     }
+    function displayEndScreen() {
+        // display a modal with player current score and time.
+    }
+    function handleVictory() {
+        player.score +=1;
+        //display modal
+    }
+
     function checkVictory() {
         if (player.y == -25) {
+            /**
+             * VICTORY CONDITIONS GO HERE
+             */
+            player.score += 1; // increase player score
+            //player.handleVictory();
             document.querySelector('body').classList.add('victory-bg');
                 setTimeout(function(){
                     document.querySelector('body').classList.remove('victory-bg');
                 }, 3000);
-            console.log('Victory!');
+            console.log('Victory! Your score is ' + player.score);
             reset();
         }
     }

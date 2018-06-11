@@ -13,3 +13,39 @@ canvas {
 .victory-bg {
     background: rgb(111, 250, 111);
 }
+
+.modal-outer {
+    background: rgba(77, 82, 150, 0.7);
+    display: none;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.modal-content {
+    background: rgb(6, 28, 88);
+    height: 45%;
+    margin: auto;
+    width: 60%;  
+}
+
+.end-condition-statement {
+    color: rgb(221, 188, 0);
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-right: 30px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

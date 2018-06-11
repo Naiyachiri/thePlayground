@@ -13,7 +13,7 @@ class Enemy {
         switch(this.difficulty) { // depending on enemy difficulty, the speed and radius change
             case 'easy':
                 this.speed = 200;
-                this.radius = 2;
+                this.radius = 1;
                 break;
             case 'med':
                 this.speed = 300;
@@ -38,14 +38,16 @@ Enemy.prototype.update = function(dt) {
     }
     if (this.difficulty == 'easy') {
         this.x += 200*dt; // currently an arbitrary value - change it according to difficulty
+        this.x = Math.floor(this.x); // round x values for collision detection
     } 
     else if (this.difficulty == 'med') {
         this.x += 300*dt;
+        this.x = Math.floor(this.x); // round x values for collision detection
     }
     else if (this.difficulty == 'hard') {
         this.x += 400*dt;
+        this.x = Math.floor(this.x); // round x values for collision detection
     }
-    
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -61,16 +63,48 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+/**
+ * the player is directly related to: (so if you need to modify these you can find them below)
+ * player properties
+ * victory conditions
+ * timer/score handlers
+ * 
+ */
 class Player {
     constructor(sprite = 'images/char-boy.png') {
         this.sprite = sprite; // set sprite equal to inputted sprite
         this.x = 200; //default position at row 2
         this.y = 400; // default position row 5
+        this.score = 0; // score keeper for player
+        this.timer = {time: 0}; // setup storage for timer keeper
+        this.start = 0; // setup a conditional for when to begin incrementing time
     }
     
 };
 
+//use this function for the setInterval callback
+Player.prototype.incrementTime = function() {
+    this.timer.time ++; // increments timer by 1
+    return this.timer.time; // returns time value
+}
+
+//call this function after pulling data for the endScreenModal
+Player.prototype.resetTime = function() {
+    if(this.start !== 1) {
+        clearInterval(this.timer.keeper); // stop the timer
+        this.timer.time = 0; // reset the time value
+    }
+}
+
 Player.prototype.handleInput = function(keypress) {
+    if (this.start == 0) {
+        this.start = 1; //begin incrementing time with updates
+        /**
+         * setup a variable in timer to use in clearInterval() later to stop the timer
+         */
+        this.timer.keeper = setInterval(function(){player.incrementTime()}, 1000);
+    }
+
     switch(keypress) {
         case 'down':
             if (this.y <= 315) { // set lower limit to 315
@@ -109,9 +143,9 @@ Player.prototype.handleInput = function(keypress) {
     }
 }
 
-
+// update function is called every tick of dt by the game's engine, so anything you want to cycle repeatedly include here (~300ms rate)
 Player.prototype.update = function(dt) {
-
+    
 };
 
 Player.prototype.render = function() {
@@ -144,3 +178,15 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+/**
+ *  MODAL RELATED FUNCTIONS
+ * 
+ */
+
+(function() {
+    //basic targets
+    const modal = document.querySelector('.modal-outer');
+    const modalContent = document.querySelector('.modal-content');
+    console.log(player);
+})();
