@@ -8,44 +8,57 @@
     <link rel="stylesheet" media="screen" href="css/responsive.css">
 </head>
 <body>
-    <div class="modal-outer">
-        <div class="modal-content">
-            <h1 class='modal-title'>Testing</h1>
-            <span class="modal-close">&times;</span>
-            <p class="modal-score"></p>
-            <p class="modal-time"></p>
-        </div>
-    </div>
-    <div class="menu-options">
-        <h1 class="character-select-title"> Choose your character! </h1>
-        <form id="character-select-form">
-            <container class="character-choice">
-                <input type="radio" name="character" id='char-boy' value="char-boy" checked>
-                <label for="char-boy"> Bugsy </label>
-            </container>
+    <header>
+        <h1 class='game-header'>Welcome to A Buginoid's life!</h1>
+    </header>
+    <main>
+        <section class="modal-outer">
+            <div class="modal-content">
+                <h1 class='modal-title'>Testing</h1>
+                <span class="modal-close">&times;</span>
+                <p class="modal-score"></p>
+                <p class="modal-time"></p>
+            </div>
+        </section>
+        <section class="menu-options">
+            <p class='menu-instructions'> Cross the bricks to reach the river and freedom!</p>
+            <container class="character-selection">
+                <h1 class="character-select-title"> Choose your character! </h1>
+                <form id="character-select-form">
+                    <container class="character-choice">
+                        <input type="radio" name="character" id='char-boy' value="char-boy" checked>
+                        <label for="char-boy"> Bugsy </label>
+                    </container>
+            
+                    <container class="character-choice">
+                        <input type="radio" name="character" id='char-cat-girl' value="char-cat-girl">
+                        <label for="char-cat-girl"> Neko </label>
+                    </container>
 
-            <container class="character-choice">
-                <input type="radio" name="character" id='char-cat-girl' value="char-cat-girl">
-                <label for="char-cat-girl"> Neko </label>
-            </container>
+                    <container class="character-choice">
+                        <input type="radio" name="character" id='char-horn-girl' value="char-horn-girl">
+                        <label for="char-horn-girl"> Devilish </label>
+                    </container>
 
-            <container class="character-choice">
-                <input type="radio" name="character" id='char-horn-girl' value="char-horn-girl">
-                <label for="char-horn-girl"> Devilish </label>
-            </container>
+                    <container class="character-choice">
+                        <input type="radio" name="character" id='char-pink-girl' value="char-pink-girl">
+                        <label for="char-pink-girl"> Pinky </label>
+                    </container>
 
-            <container class="character-choice">
-                <input type="radio" name="character" id='char-pink-girl' value="char-pink-girl">
-                <label for="char-pink-girl"> Pinky </label>
-            </container>
-
-            <container class="character-choice">
-                <input type="radio" name="character" id='char-princess-girl' value="char-princess-girl"> 
-                <label for="char-princess-girl"> Princess </label>
-            </container>
-        </form>
-    </div>
-    <div class='scoreboard'></div>
+                    <container class="character-choice">
+                        <input type="radio" name="character" id='char-princess-girl' value="char-princess-girl"> 
+                        <label for="char-princess-girl"> Princess </label>
+                    </container>
+                </container>
+            </form>
+        </section>
+        <section class='scoreboard'>
+            <h2 class="scoreboard-score">Your current Score:</h2>
+            <p class="scoreboard-value"> 0 </p>
+            <h2 class="scoreboard-timer"> Current Elapsed Time: </h2>
+            <p class="scoreboard-time"> 0 </p>
+        </section>
+    </main>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>

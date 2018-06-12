@@ -1,14 +1,42 @@
 body {
+    background: rgb(6, 92, 49);
+    display: flex;
+    flex-wrap: wrap;    
     text-align: center;
     margin: 0;
-    display: flex;
-    align-content: center;
-    background: rgb(6, 92, 49);
 }
 
+main {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+header {
+    display: flex;
+    width: 100%;
+    margin: 0 10%;
+}
+
+.game-header {
+    background:linear-gradient(to right,  rgb(111, 250, 111), rgb(1, 204, 255));
+    margin: 0;
+    width: 100%;
+}
+
+
+/*
+GAME CANVAS
+*/
 canvas {
     background: #000;
 }
+
+
+
+/*
+END SCREEN STYLES
+*/
 
 .alert-bg {
     background: rgb(255, 42, 42);
@@ -18,9 +46,17 @@ canvas {
     background: rgb(111, 250, 111);
 }
 
+/* 
+*
+END SCREEN MODAL
+*
+*/
+
 .modal-outer {
+    align-self: center;
     background: rgba(77, 82, 150, 0.329);
     height: 100%;
+    justify-self: center;
     left: 0;
     overflow: auto;
     position: fixed;
@@ -38,7 +74,6 @@ canvas {
     height: 60%;
     margin: 4% 25% 20% 25%;
     width: 50%;
-    
 }
 
 .modal-title {
@@ -56,18 +91,48 @@ canvas {
 .modal-close:hover,
 .modal-close:focus {
     color: rgb(241, 45, 45);
-    text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
 }
+
+/*
+*
+MENU STYLES
+*
+*/
 
 .menu-options {
     background: rgb(241, 225, 131);
-    margin-right: 5px;
-    -webkit-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
+    flex: 1;
+    flex-direction: row;
+    -webkit-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75); 
+}
+
+.menu-instructions {
+    padding-left: 5px;
+}
+
+.character-select-title {
+    height: auto;
+    padding-bottom: 5px;
 }
 
 #character-select-form {
-    text-align: left;
+    text-align: center;
+}
+
+/*
+*
+SCORE BOARD STYLES
+*
+*/
+
+.scoreboard {
+    background: rgb(255, 255, 255);
+    border: solid 3px rgb(0, 0, 0);
+    border-radius: 5%;
+    flex: 1;
+    flex-direction: row;
 }

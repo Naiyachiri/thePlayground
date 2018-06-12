@@ -1,12 +1,15 @@
 @media screen and (max-width: 745px) {
-    body {
-        flex-wrap: wrap;
+    .game-header {
+        display: none;
+        width: 100%;
+    }
+    .scoreboard {
+        order: 2
     }
 
     canvas {
         width: 100%;
         height: 75%;
-        order: 1;
         display: flex;
     }
 
@@ -17,44 +20,39 @@
         
     }
 
-    .character-select-title {
-        width: 100%;
-        margin: 0;
-        font-size: 1.5em;
-    }
-
     #character-select-form {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
     }
+
     #character-select-form input {
         width: auto;
     }
+
     #character-select-form label {
         width: auto;
     }
 }
 
 @media screen and (min-width: 746px) {
+    main {
+        align-content: center;
+        justify-content: center;
+        margin: 0 10%;
+        width: 100%;
+    }
+
     .menu-options {
         display: flex;
         flex-wrap: wrap;
         order: 0;
-        max-width: 247px;
-        align-items: center;
-        align-content: center;
-    }
-
-    .character-select-title {
-        height: 150px;
-        margin: 0;
-        padding: 0;
     }
     
     .character-choice {
         display: inline-flex;
-        width: 40%;
     }
 
     .canvas {
@@ -62,6 +60,6 @@
     }
 
     .scoreboard {
-        order: 3;
+        order: 2;
     }
 }
