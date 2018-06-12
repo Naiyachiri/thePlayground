@@ -1,5 +1,8 @@
 body {
     text-align: center;
+    margin: 0;
+    display: flex;
+    align-content: center;
 }
 
 canvas {
@@ -7,7 +10,7 @@ canvas {
 }
 
 .alert-bg {
-    background: red;
+    background: rgb(255, 42, 42);
 }
 
 .victory-bg {
@@ -15,10 +18,12 @@ canvas {
 }
 
 .modal-outer {
-    background: rgba(77, 82, 150, 0.7);
+    background: rgba(77, 82, 150, 0.329);
     height: 100%;
+    left: 0;
     overflow: auto;
     position: fixed;
+    top: 0;
     visibility: hidden;
     width: 100%;
     z-index: 10;
@@ -26,11 +31,12 @@ canvas {
 
 .modal-content {
     background: rgb(6, 28, 88);
-    border-radius: 5px;
+    border-radius: 5%;
+    border: solid 3px rgb(16, 132, 199);
     color: rgb(255, 255, 255);
-    height: 45%;
-    margin: 20%;
-    width: 60%;
+    height: 60%;
+    margin: 4% 25% 20% 25%;
+    width: 50%;
     
 }
 

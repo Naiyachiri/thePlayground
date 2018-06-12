@@ -1,10 +1,14 @@
+# How to run bootleg Frogger :)
 
-# TODO
+First download the repository from my [repository](https://github.com/Naiyachiri/thePlayground/frontend-nanodegree-arcade-game)
 
-## implement a time/score system
+## Controls
 
-* create victory/ loss modal popup
-* implement responsive score changes and defeat
+Use the arrow keys to move the character. The goal of the game is to reach the water without being caught by the lady bugs.
+
+How far can you go and how fast can you get reach the goal?
+
+## TODO
 
 ## implement game setup ui
 
@@ -12,9 +16,12 @@
 
 ### enemy select
 
+* either use RNG system to generate enemies or predesign spawns dependent on score
+
 ### frontend-nanodegree-arcade-game
 
 ## two player compatibility
+
 
 * https://stackoverflow.com/questions/5203407/javascript-multiple-keys-pressed-at-once?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 
