@@ -3,6 +3,7 @@ body {
     margin: 0;
     display: flex;
     align-content: center;
+    background: rgb(6, 92, 49);
 }
 
 canvas {
@@ -57,4 +58,16 @@ canvas {
     color: rgb(241, 45, 45);
     text-decoration: none;
     cursor: pointer;
+}
+
+.menu-options {
+    background: rgb(241, 225, 131);
+    margin-right: 5px;
+    -webkit-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+#character-select-form {
+    text-align: left;
 }

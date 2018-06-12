@@ -19,13 +19,33 @@
     <div class="menu-options">
         <h1 class="character-select-title"> Choose your character! </h1>
         <form id="character-select-form">
-                <input type="radio" name="character" value="char-boy"> Bugsy <br>
-                <input type="radio" name="character" value="char-cat-girl"> Neko <br>
-                <input type="radio" name="character" value="char-horn-girl"> Devilish <br>
-                <input type="radio" name="character" value="char-pink-girl"> Pinky <br>
-                <input type="radio" name="character" value="char-princess-girl"> Princess
-              </form>
+            <container class="character-choice">
+                <input type="radio" name="character" id='char-boy' value="char-boy" checked>
+                <label for="char-boy"> Bugsy </label>
+            </container>
+
+            <container class="character-choice">
+                <input type="radio" name="character" id='char-cat-girl' value="char-cat-girl">
+                <label for="char-cat-girl"> Neko </label>
+            </container>
+
+            <container class="character-choice">
+                <input type="radio" name="character" id='char-horn-girl' value="char-horn-girl">
+                <label for="char-horn-girl"> Devilish </label>
+            </container>
+
+            <container class="character-choice">
+                <input type="radio" name="character" id='char-pink-girl' value="char-pink-girl">
+                <label for="char-pink-girl"> Pinky </label>
+            </container>
+
+            <container class="character-choice">
+                <input type="radio" name="character" id='char-princess-girl' value="char-princess-girl"> 
+                <label for="char-princess-girl"> Princess </label>
+            </container>
+        </form>
     </div>
+    <div class='scoreboard'></div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>

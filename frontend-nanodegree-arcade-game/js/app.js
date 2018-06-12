@@ -231,3 +231,24 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+/**
+ * HUD for character selection!
+ */
+//set up target for character form
+let characterForm = document.querySelector('#character-select-form');
+
+function handleCharacterFormClick(event) {
+    let value = event.target.value;
+
+    if (value !== undefined) {
+        let newsprite = 'images/' + value + '.png';
+        console.log(newsprite);
+        player.sprite = 'images/'+ value + '.png';
+        document.querySelector('canvas').focus();
+    }
+}
+
+characterForm.addEventListener('click', function(event){
+    handleCharacterFormClick(event);
+}); // event listener for form
