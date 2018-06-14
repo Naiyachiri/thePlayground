@@ -225,7 +225,9 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    if (modalOpen == 1){ // prevents any inputs being processed when modal is open
+    if (modalOpen == 1){ // closes modal if any key is pressed
+        modalOpen = 0;
+        document.querySelector('.modal-outer').style.visibility = 'hidden';
         return;
     }
 

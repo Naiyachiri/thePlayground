@@ -10,8 +10,6 @@ How far can you go and how fast can you get reach the goal?
 
 ## TODO
 
-## implement game setup ui
-
 ### enemy select
 
 * either use RNG system to generate enemies or predesign spawns dependent on score
@@ -19,6 +17,8 @@ How far can you go and how fast can you get reach the goal?
 ### frontend-nanodegree-arcade-game
 
 ## two player compatibility
+
+## mobile control system
 
 *[Link](https://stackoverflow.com/questions/5203407/javascript-multiple-keys-pressed-at-once?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
 
