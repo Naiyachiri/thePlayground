@@ -10,6 +10,8 @@ How far can you go and how fast can you get reach the goal?
 
 ## TODO
 
+### BUGFIX - time function does not reset upon modal popup
+
 ### enemy select
 
 * either use RNG system to generate enemies or predesign spawns dependent on score

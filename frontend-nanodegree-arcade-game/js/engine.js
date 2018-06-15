@@ -92,6 +92,7 @@ var Engine = (function(global) {
                  * //flash body red on death
                  * DEFEAT CONDITIONS GO HERE
                  * */
+            console.log(enemy);
                 player.handleEnd('defeat');
                 document.querySelector('body').classList.add('alert-bg');
                 setTimeout(function(){
@@ -107,7 +108,10 @@ var Engine = (function(global) {
             /**
              * VICTORY CONDITIONS GO HERE
              */
-            player.score ++; // increment score on victory
+            player.score ++; // increment score on victory            
+            if (player.score == 6 || player.score == 11) {
+                player.difficultyRamp = 1; // allow enemy to update speed when score reaches 6 and 11
+            }
             player.handleEnd('victory');
             document.querySelector('body').classList.add('victory-bg');
                 setTimeout(function(){
@@ -132,7 +136,7 @@ var Engine = (function(global) {
      */
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
-            enemy.update(dt);
+            enemy.update(dt, player.score); // player score is passed onto enemy updates to change difficulty according to player's score
         });
         player.update();
     }
