@@ -1,3 +1,10 @@
+/*
+POTENTIAL CHANGES:
+ positions are absolute[an exact x and y coordinate is declared, but could also be planned around a 2D array/object, where {row = [0, 1, 2, 3, 4, 5], column = [0, 1, 2, 3, 4]}
+ and while enemy movements are fluid, detection is based on row/column collision
+ 
+ */
+
 // Enemies our player must avoid
 class Enemy {
     // Variables applied to each of our instances go here,
@@ -29,10 +36,17 @@ class Enemy {
     // a helper we've provided to easily load images    
 };
 
+/**
+ * enemy generation function
+ * an enemy requires 2 parameters(row, difficulty)
+ */
+ 
+
+ 
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between tick
 Enemy.prototype.update = function(dt, playerScore) {
-    
     
     if(this.x >= 501){
         this.x = -55; // resets enemy positions once they go off screen
@@ -50,7 +64,6 @@ Enemy.prototype.update = function(dt, playerScore) {
         this.x += (400)*dt;
         this.x = Math.floor(this.x); // round x values for collision detection
     }
-
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -90,6 +103,7 @@ class Player {
 //use this function for the setInterval callback
 Player.prototype.incrementTime = function() {
     this.timer.time ++; // increments timer by 1
+    s1.updateBoard(); // update board with changes to time
     return this.timer.time; // returns time value
 }
 
@@ -189,7 +203,6 @@ class Modal {
 Modal.prototype.show = function (newCondition) {
     this.condition = newCondition; // update condition property
     this.modalOpen = 1; // set status to open
-    console.log(this.$modalOuter);
     let modalOuter = this.$modalOuter;
     modalOuter.style.visibility = 'visible';
     this.updateModal();
@@ -232,6 +245,24 @@ Modal.prototype.initialModalSetup = function () { //event listener for close but
         m1.handleModalClose();
     });
 }
+
+/**
+ * Scoreboard class, object which holds all the properties and methods specific to 
+ * modifying the scoreboard
+ */
+class Scoreboard {
+    constructor() {
+        this.$scoreboardTimer = document.querySelector('.scoreboard-time');
+        this.$scoreboardValue = document.querySelector('.scoreboard-value');
+    }
+}
+
+Scoreboard.prototype.updateBoard = function() {
+    let convertedTime = player.timer.time; // TODO: potentially convert it into a 0:00 system
+    this.$scoreboardTimer.innerHTML = convertedTime; // update the timer
+    this.$scoreboardValue.innerHTML = player.score; // update the score
+}
+
 /**
  * create a function here that determines enemy creation based on player stats
  */
@@ -250,7 +281,7 @@ let p1 = new Player('images/char-boy.png');
 
 let e1 = new Enemy(60, 'med');
 let e2 = new Enemy(145, 'hard');
-let e3 = new Enemy(230);
+let e3 = new Enemy(230); // if no parameter is set defaults to easy
 
 /**
  *  connector variables which allow engine.js to locate players/enemies
@@ -266,54 +297,11 @@ let m1 = new Modal;
 m1.initialModalSetup(); // sets up event listeners for modal
 
 /**
- *  MODAL RELATED FUNCTIONS
- * 
+ * initialize scoreboard object
  */
 
- //CONVERTED to Object Modal
-// function showModal(condition) {
-//     modalOpen = 1;
-//     clearInterval(player.timer.keeper); // stop timer
-//     document.querySelector('.modal-outer').style.visibility = 'visible';
-//     updateModal(condition);
-// }
+ let s1 = new Scoreboard;
 
-
-// converted to object Modal 
-// function updateModal(condition) { 
-//    //basic modal target
-//     const modalTitle = document.querySelector('.modal-title');
-//     const modal = document.querySelector('.modal-outer');
-//     const modalScore = document.querySelector('.modal-score');
-//     const modalTime = document.querySelector('.modal-time');
-
-//     let modalScoreMsg = "Your current score is " + player.score;
-//     let modalTimeMsg = "The time elapsed for this run was " + player.timer.time + ".";
-//     let modalTitleMsg; // determines title message based on end condition passed through engine
-//     if (condition == 'defeat') {
-//         modalTitleMsg = "You lost! Nice try!";        
-//     } else {
-//         modalTitleMsg = "You won! Good Job!";
-//     };
-
-//     modalTitle.innerHTML = modalTitleMsg; // update modal end condition msg
-//     modalScore.innerHTML = modalScoreMsg; // update the modal score message
-//     modalTime.innerHTML = modalTimeMsg; // update modal time message
-
-//     const modalClose = document.querySelector('.modal-close');
-//    //set up listeners to close modal
-
-//    function handleModalClose() {
-//        modalOpen = 0;
-//        modal.style.visibility = 'hidden';
-//            player.start = 0; // set status to reset timer on loss
-//            player.resetTime(); // fulfill timer reset
-//    }
-
-//    modalClose.addEventListener('click', function(e){
-//        handleModalClose();
-//    });
-// };
 
 // This listens for key presses and sends the keys to your character
 // Player.handleInput() method. You don't need to modify this.
@@ -338,6 +326,7 @@ document.addEventListener('keyup', function(e) {
 /**
  * HUD for character selection!
  */
+
 //set up target for character form
 let characterForm = document.querySelector('#character-select-form');
 
@@ -354,4 +343,4 @@ function handleCharacterFormClick(event) {
 
 characterForm.addEventListener('click', function(event){
     handleCharacterFormClick(event);
-}); // event listener for form
+}); // event listener for character selection

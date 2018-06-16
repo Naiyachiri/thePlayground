@@ -1,6 +1,7 @@
 # How to run bootleg Frogger :)
 
-First download the repository from my [repository](https://github.com/Naiyachiri/thePlayground/frontend-nanodegree-arcade-game)
+1. Download the repository from my [repository](https://github.com/Naiyachiri/thePlayground/frontend-nanodegree-arcade-game)
+2. Open index.html
 
 ## Controls
 
@@ -10,7 +11,7 @@ How far can you go and how fast can you get reach the goal?
 
 ## TODO
 
-### BUGFIX - time function does not reset upon modal popup
+### Make scoreboard DOM elements responsive to player score changes
 
 ### enemy select
 

@@ -108,7 +108,8 @@ var Engine = (function(global) {
             /**
              * VICTORY CONDITIONS GO HERE
              */
-            player.score ++; // increment score on victory            
+            player.score ++; // increment score on victory
+            s1.updateBoard(); // update board with changes to time
             if (player.score == 6 || player.score == 11) {
                 player.difficultyRamp = 1; // allow enemy to update speed when score reaches 6 and 11
             }
