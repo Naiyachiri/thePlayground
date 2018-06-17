@@ -2,22 +2,23 @@
 POTENTIAL CHANGES:
  positions are absolute[an exact x and y coordinate is declared, but could also be planned around a 2D array/object, where {row = [0, 1, 2, 3, 4, 5], column = [0, 1, 2, 3, 4]}
  and while enemy movements are fluid, detection is based on row/column collision
- 
  */
 
 // Enemies our player must avoid
 class Enemy {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    constructor(row = 0, difficulty = 'easy'){
+    constructor(difficulty = 'easy', row = 230, speedModifier = 0){ // order of params is important to subclass
         this.sprite = 'images/enemy-bug.png'; // enemy sprite
         this.x = -100; // // 0, 100, 200, 300, 400, 500 (intervals of 100 per column)
         this.y = row // -25, 60, 145, 230, 315, 400  (intervals of 85 per row)
         this.difficulty = difficulty; // easy, med, hard change the speed of the enemy
         this.speed; // initialize speed property
         this.radius; // initialize radius property
-
-        switch(this.difficulty) { // depending on enemy difficulty, the speed and radius change
+        this.speedModifier = speedModifier; // potentially used if you want to change enemy's speed
+        
+        // for randomization of SmartEnemy this may instead not be used // changed to a function for called-if-neccessary type function
+        switch(this.difficulty) { // depending on enemy difficulty, the speed (x-axis movement) and radius(enemy collision detection range) increase
             case 'easy':
                 this.speed = 200;
                 this.radius = 1;
@@ -36,32 +37,29 @@ class Enemy {
     // a helper we've provided to easily load images    
 };
 
-/**
- * enemy generation function
- * an enemy requires 2 parameters(row, difficulty)
- */
- 
 
- 
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between tick
-Enemy.prototype.update = function(dt, playerScore) {
+Enemy.prototype.update = function(dt) {
     
     if(this.x >= 501){
         this.x = -55; // resets enemy positions once they go off screen
+        if (this.generateProperties !== undefined) {
+        this.generateProperties(); // calls the generate properties method (will only work)
+        }
         return;
     }
     if (this.difficulty == 'easy') {
-        this.x += (200)*dt; // currently an arbitrary value - change it according to difficulty
+        this.x += (this.speed + this.speedModifier)*dt; // currently an arbitrary value - change it according to difficulty
         this.x = Math.floor(this.x); // round x values for collision detection
     } 
     else if (this.difficulty == 'med') {
-        this.x += (300)*dt;
+        this.x += (this.speed + this.speedModifier)*dt;
         this.x = Math.floor(this.x); // round x values for collision detection
     }
     else if (this.difficulty == 'hard') {
-        this.x += (400)*dt;
+        this.x += (this.speed + this.speedModifier)*dt;
         this.x = Math.floor(this.x); // round x values for collision detection
     }
     // You should multiply any movement by the dt parameter
@@ -73,6 +71,90 @@ Enemy.prototype.update = function(dt, playerScore) {
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+class SmartEnemy extends Enemy { // SmartEnemy is a subclass which will automatically generate random variables for itself for position and speed based on a given difficulty
+
+    // to be added onto the board it must be added to the allEnemies array
+
+    constructor(difficulty = 'easy', y = 230){ 
+        super(difficulty);
+        // not sure what exactly happens when two classes share a property (probably closest property is used, but noted here for potential bug fix)
+        this.difficulty = difficulty;
+
+        switch(this.difficulty) { // depending on enemy difficulty, the speed (x-axis movement) and radius(enemy collision detection range) increase
+            case 'easy':
+                this.baseSpeed = 50;
+                this.radius = 1;
+                break;
+            case 'med':
+                this.baseSpeed = 100;
+                this.radius = 3;
+                break;
+            case 'hard':
+                this.baseSpeed = 150;
+                this.radius = 4;
+                break;
+        }
+        // master object which contains arrays of all the possible data combinations for randomization of enemies
+        // the ':' are left in the comments for easier conversion into nested objects
+        this.enemyBaseData = {
+            positions: [230, 145, 60], //row1: row2: row3: 
+            sprite:['images/enemy-bug.png','images/enemy-bug-2.png'], // red: green:
+            speed: [200, 300, 400], // easy:  med:  hard: 
+            radius: [1, 3, 5], // easy: med: hard:
+        }
+    }
+};
+
+/**
+ * generateProperties() generates a new set of randomly chosen properties within a difficulty range that helps make enemies less repetitive
+ */
+
+SmartEnemy.prototype.generateProperties = function() {
+    // set each of the enemy properties equal to a random value
+    // this.y
+    // this.speed
+    //this.sprite
+    function rAI(array) { //randomArrayIndex
+        let randomIndex = Math.floor((Math.random()*array.length));
+        return randomIndex;
+    }
+    //set a new random y for this smartEnemy instance
+    let newY = this.enemyBaseData.positions[rAI(this.enemyBaseData.positions)];
+    this.y = newY;
+    let difficultyMod;
+
+    function rSpeed(difficulty) { // random speed generator based on difficulty property (returns a value between 0 and analogous difficulty's speed)
+        let topSpeed;
+        let speedArray = [200, 300, 400]; // easy:  med:  hard: 
+        if (difficulty == 'hard'){
+            topSpeed = speedArray[2];
+            difficultyMod = 200;
+        } else if (difficulty == 'med') {
+            topSpeed == speedArray[1];
+            difficultyMod = 150;
+        } else if (difficulty == 'easy') {
+            topSpeed = speedArray[0]
+            difficultyMod = 100;
+        }        
+        let newSpeed = Math.floor(Math.random()*topSpeed);
+        return newSpeed;
+    }
+
+    let newSpeed = rSpeed(this.difficulty);
+    this.speed = newSpeed + newSpeed;
+    if (this.speed <= 100) {
+        this.speed += difficultyMod; // if the randomly generated speed is below 100, add speed to the enemy, so that it will get to the other side during this century xD
+    }
+    //return sprite to starting position so it is easier to see the change
+    this.x = -60; // DEBUG
+
+    if(this.speed >= 125) {
+        console.log(this.enemyBaseData[rAI(this.enemyBaseData.sprite)]);
+    }
+        // randomly gives the enemy a sprite type between the variations
+    this.sprite = this.enemyBaseData.sprite[rAI(this.enemyBaseData.sprite)];
+}
 
 /**
  * 
@@ -276,12 +358,12 @@ let p1 = new Player('images/char-boy.png');
 
 /**
  * initialize enemy/ies
- * // enemy param1 = y axis position, enemy param 2 = difficulty(easy,med,hard = speed & radius)
+ * // enemy param1 = difficulty(easy,med,hard == speed & radius), enemy param 2 = y axis position
  */
 
-let e1 = new Enemy(60, 'med');
-let e2 = new Enemy(145, 'hard');
-let e3 = new Enemy(230); // if no parameter is set defaults to easy
+let e1 = new Enemy('med', 60);
+let e2 = new Enemy('hard', 145);
+let e3 = new Enemy(undefined, 230); // if no parameter is set defaults to easy
 
 /**
  *  connector variables which allow engine.js to locate players/enemies
@@ -301,6 +383,13 @@ m1.initialModalSetup(); // sets up event listeners for modal
  */
 
  let s1 = new Scoreboard;
+
+//DEBUG
+let x = new SmartEnemy;
+allEnemies[allEnemies.length] = x; // is required to make the x in allEnemies and the stated x the SAME
+//allEnemies.push(x);
+// pushing an object into an array creates a new identical object (they do not share references, so changes to x do NOT effect the object in the array)
+//DEBUG
 
 
 // This listens for key presses and sends the keys to your character

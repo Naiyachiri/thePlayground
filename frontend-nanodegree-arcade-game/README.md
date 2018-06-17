@@ -11,17 +11,15 @@ How far can you go and how fast can you get reach the goal?
 
 ## TODO
 
-### Make scoreboard DOM elements responsive to player score changes
-
-### enemy select
-
-* either use RNG system to generate enemies or predesign spawns dependent on score
+## make enemy difficulty scaling with player score
 
 ### frontend-nanodegree-arcade-game
 
 ## two player compatibility
 
 ## mobile control system
+
+## power-up pickups
 
 *[Link](https://stackoverflow.com/questions/5203407/javascript-multiple-keys-pressed-at-once?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
 
