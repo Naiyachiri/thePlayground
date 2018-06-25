@@ -131,3 +131,14 @@ $(function() {
         $('body').toggleClass('menu-hidden');
     });
 }());
+
+
+// //DEBUGGING FUNCTIONS and VARIABLES
+
+//     let $slideMenu = document.querySelector('.slide-menu');
+//     //this is the simplier way to target the slide-menu which is independent of if the element is js 'functionally' hidden
+//     console.log($slideMenu);
+
+//     let $slideMenu2 = document.querySelector('.menu-hidden .slide-menu');
+//     // this specifically is what the css that hides the menu targets
+//     console.log($slideMenu2);

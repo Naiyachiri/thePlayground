@@ -1,4 +1,8 @@
-# Project Overview
+# Running this project
+
+To run this project. Download the file from [here](https://github.com/Naiyachiri/fend-feed-reader). open the index.html and the tests can be seen appended to the bottom of the feed data
+
+## Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
 
