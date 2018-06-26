@@ -43,12 +43,12 @@ $(function() {
             //another way without variables tracking URL is to check the length of allFeed[id].url.length if the value is <= 0 then it is the same as undefined
             let matches = 0;
            allFeeds.forEach(function(feed){
-               if (feed.url == undefined) {
-                   // if any feed is empty
-                   matches++; // increment matches
-               }
+            expect(feed.url).toBeDefined(); // checks for value to be defined
+            expect(feed.url).not.toBe(''); // checks against a defined, but empty value
            });
            // jasmine can also take multiple expect values, so instead of forEach we could (albeit more labor intensivily) check each allFeeds[id] value against being undefined// having a length <= 0
+           // note: undefined is not the same as empty when comparing undefined and '', js will return false, which is not the intended return
+           // length size and equivalency to '' should be checked
            expect(matches).toBe(0); // if matches returns any value other than 0, one of the URLs is empty
         });
 
@@ -57,16 +57,11 @@ $(function() {
          * and that the name is not empty.
          */
         it('each feed has a defined name', function() {
-            let matches = 0;
-            //another way without variables tracking URL is to check the length of allFeed[id].name.length if the value is <= 0 then it is the same as undefined
-           allFeeds.forEach(function(feed){
-               if (feed.name == undefined) {
-                   // if any feed is empty
-                   matches++; // increment matches
-               }
+            //another way without variables tracking URL is to check the length of allFeed[id].name.length if the value is <= 0 then it is the same as undefined, but you wouold also still ned
+           allFeeds.forEach(function(feed){ 
+            expect(feed.name).toBeDefined(); // checks for value to be defined
+            expect(feed.name).not.toBe(''); // checks against a defined, but empty value
            });
-
-           expect(matches).toBe(0); // if matches returns any value other than 0, one of the names is empty
         });
     });
 
@@ -148,18 +143,27 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        let previousTitle = document.querySelector('.header-title').textContent; // set initial title before running loadFeed on a new url
+        let previousFeed,
+            newFeed;
         beforeEach(function(done){
-            loadFeed(1, function(){ // load a new feed
-                done();
+            loadFeed(0, function(){ // load a new feed
+                previousFeed = $('body').html();
+                // instead of using the usual document.querySelector(), $() was used because it requires less keystrokes and yields the same result here and for practice in understanding the differences between the two
+                // note the methods for generating the desired information is slightly different
+                // $(selector).html(); note the parentheses deeming this a method call (it can accept paramenters)
+
+                loadFeed(1, function() {
+                    newFeed = document.querySelector('body').innerHTML;
+                    // document.querySelector('body').innerHTML; note the lack of parentheses suggesting this is infact a property (it can be set to a new value)
+                    done();
+                });
             });
         });
 
         it('loads new content when the feed selection is changed', function(done){
             // loadFeed can be called to simulate selection of new urls, by comparing old and new title values changes in content can be checked
 
-            let newTitle = document.querySelector('.header-title').textContent; // after a new feed is loaded store new title's contents
-            expect(previousTitle !== newTitle).toBe(true); // compare the titles if they have changed and are  different the loadFeed function is changing content
+            expect(previousFeed !== newFeed).toBe(true); // compare the titles if they have changed and are  different the loadFeed function is changing content
             done();
         });
     });
