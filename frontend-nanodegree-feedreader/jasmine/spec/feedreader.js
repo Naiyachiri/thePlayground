@@ -41,7 +41,6 @@ $(function() {
          */
         it('each feed has a defined URL', function() {
             //another way without variables tracking URL is to check the length of allFeed[id].url.length if the value is <= 0 then it is the same as undefined
-            let matches = 0;
            allFeeds.forEach(function(feed){
             expect(feed.url).toBeDefined(); // checks for value to be defined
             expect(feed.url).not.toBe(''); // checks against a defined, but empty value
@@ -49,7 +48,6 @@ $(function() {
            // jasmine can also take multiple expect values, so instead of forEach we could (albeit more labor intensivily) check each allFeeds[id] value against being undefined// having a length <= 0
            // note: undefined is not the same as empty when comparing undefined and '', js will return false, which is not the intended return
            // length size and equivalency to '' should be checked
-           expect(matches).toBe(0); // if matches returns any value other than 0, one of the URLs is empty
         });
 
         /* TODO: Write a test that loops through each feed
@@ -86,17 +84,8 @@ $(function() {
         it('the menu is hidden by default', function() {
             let styleCondition = document.querySelector('body').classList.contains('menu-hidden');
 
-            /** 
-             *  FOR FUTURE UNIVERSAL USE
-             * let position = Object.getBoundingClientRect();
-             * then returning position.top, position.left, position.bottom, position.right
-             * will yield negative values if any of the object is off screen
-             * needs additional adaptions to clearly detect if dom element is off viewport or not
-            */
-            
             expect(styleCondition).toBe(true);
         });
-
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -124,9 +113,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done) {
-            loadFeed(0, function(){
-                done(); // pass done in as the callback function to allow its async completion before continuing to our test
-            });
+            loadFeed(0, done);
             //jasmine's test scripts actively change what the viewer sees upon landing on the index.html[ie loadFeed(3, cb), causes linear digressions to appear after loadFeed(0) is loaded]
         });
 
@@ -160,11 +147,9 @@ $(function() {
             });
         });
 
-        it('loads new content when the feed selection is changed', function(done){
+        it('loads new content when the feed selection is changed', function() {
             // loadFeed can be called to simulate selection of new urls, by comparing old and new title values changes in content can be checked
-
-            expect(previousFeed !== newFeed).toBe(true); // compare the titles if they have changed and are  different the loadFeed function is changing content
-            done();
+            expect(previousFeed !== newFeed).toBe(true);
         });
     });
 }());
