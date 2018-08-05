@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import escapeRegExp from 'escape-string-regexp';
 // ESCAPE STRING is a NPM module that allows us to filter out escape strings
@@ -47,6 +48,10 @@ class  ListContacts extends Component {
             value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
             />
+            <Link 
+            to="/create"
+            className="add-contact"
+            >AddContact</Link>
             </div>
 
           {/* example of dynamic rendering inside of react condition && rendered element*/}
