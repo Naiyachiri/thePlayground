@@ -27,7 +27,8 @@ class  ListContacts extends Component {
    render() {
     const { contacts, onDeleteContact } = this.props;
     const { query } = this.state;
-
+    // above use of destructuring allows us to shortcut the use of this.props identifiers for the contacts and onDeleteContact props
+    
     let showingContacts
     if (query) {
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
