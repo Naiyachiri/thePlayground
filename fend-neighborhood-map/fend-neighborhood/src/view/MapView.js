@@ -1,1 +1,0 @@
-// pull the map information from gMapFetcher and render it here

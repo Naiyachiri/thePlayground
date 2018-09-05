@@ -1,0 +1,22 @@
+#main-content {
+  height: 100%;
+  width: 100%;
+}
+
+.main-title {
+  text-align: center;
+}
+
+#settings-bar {
+left: 0;
+position: absolute;
+width: 30%;
+padding: 0.5em;
+}
+
+#map-container {
+  height: 90%;
+  right: 0;
+  width: 70%;
+  position: absolute;
+}
