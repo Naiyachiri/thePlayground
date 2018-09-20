@@ -48,6 +48,14 @@ handleMarkerClick = (event, ll, index) => {
     })
 }
 
+handleListItemClick = (event, location, index) => { // composite marker click in order to similate if a marker was clicked but using list items instead
+  let newCenter = { lat: 38.9072, lng: -77.0369 } // initialize values incase no ll is given
+  if (location !== undefined && location.location !== undefined) { // check if location was passed into the method
+    newCenter = {lat: location.location.lat, lng: location.location.lng}// set new center to that list item's location
+  }
+ this.handleMarkerClick(event, newCenter, index)
+}
+
 handleInfoWindowCloseEvent = (event) => {
     //reset state values to default
     this.setState({
@@ -55,6 +63,16 @@ handleInfoWindowCloseEvent = (event) => {
       center: this.defaultMapCenter,
       zoom: this.defaultZoomValue
     })
+}
+
+restoreCenter = () => {
+  this.setState({
+    newCenter: this.state.defaultCenter
+  })
+}
+
+setNewCenter = () => {
+  this.setState
 }
 
 updateLocations = (filterResults, query) => {
@@ -75,7 +93,7 @@ updateLocations = (filterResults, query) => {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <FilterComponent 
-          onListItemClick={this.handleMarkerClick}
+          onListItemClick={this.handleListItemClick}
           locationsArray={this.state.locations}
           onKeyPress={this.handleFilterQuery}
          />

@@ -17,6 +17,7 @@ function handleErrors(response) {
 const api = 'https://api.foursquare.com/v2'
 
 // this gets up to 10 results for locations for our purposes
+//note foursquare distance is measured in meters
 export const getLocationsAll = () =>
   fetch(`${api}/venues/search?ll=38.7916449,-77.119759&intent=browse&radius=1000&limit=10&client_id=NRGQG3Z25DSMLYUKPTODJY1ZOQTI0NVONSZICDVVOLXTQ1MK&client_secret=J35TCWD20UY10TYUR0RS2V5XQ0MJLFPBT02TJRK33425RVPP&v=20180708`)
   .then(handleErrors)
