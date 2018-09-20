@@ -18,15 +18,18 @@ ComponentWillMount() {
 }
 
 
+
  // onclick function for any list item requires a reciprocal centering response from the map api
  state = {
    google: this.props.google,
    markerObjects: this.props.markerObjects,
  }
 
-
-
   render() {
+    if (this.state.markerObjects.length == 0) {
+      this.props.updateMarkers;
+    }
+
     const { markerObjects, google } = this.props;
     return (
       <List>

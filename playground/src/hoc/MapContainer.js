@@ -10,41 +10,42 @@ export class MapContainer extends React.Component {
     selectedPlace: {name: 'test'},
     showingInfoWindow: false,
     activeMarker: {},
-    markerObjects: []
+    markerObjects: [],
+    locations: [
+      {
+        title: 'LM information',
+        name: 'Lincoln Memorial',
+        position: {lat: 38.8893, lng: -77.0502},
+        visible: true
+      },
+      {
+        title: 'WH information',
+        name: 'The White House',
+        position: {lat: 38.8977, lng: -77.0365},
+        visible: true
+      },
+      {
+        title: 'WW2M information',
+        name: 'National World War 2 Memorial',
+        position: {lat: 38.8894, lng: -77.0405},
+        visible: true
+      },
+      {
+        title: 'LOC information',
+        name: 'Library of Congress',
+        position: {lat: 38.8913, lng: -77.0477},
+        visible: true
+      },
+      {
+        title: 'NM information',
+        name: 'National Mall',
+        position: {lat: 38.8896, lng: -77.0230},
+        visible: true
+      }
+    ]
   };
 
-  locations = [
-    {
-      title: 'LM information',
-      name: 'Lincoln Memorial',
-      position: {lat: 38.8893, lng: -77.0502},
-      visible: true
-    },
-    {
-      title: 'WH information',
-      name: 'The White House',
-      position: {lat: 38.8977, lng: -77.0365},
-      visible: true
-    },
-    {
-      title: 'WW2M information',
-      name: 'National World War 2 Memorial',
-      position: {lat: 38.8894, lng: -77.0405},
-      visible: true
-    },
-    {
-      title: 'LOC information',
-      name: 'Library of Congress',
-      position: {lat: 38.8913, lng: -77.0477},
-      visible: true
-    },
-    {
-      title: 'NM information',
-      name: 'National Mall',
-      position: {lat: 38.8896, lng: -77.0230},
-      visible: true
-    }
-  ]
+
   
   //handler for when markers are clicked
   onMarkerClick = (props, marker) =>
@@ -82,7 +83,7 @@ export class MapContainer extends React.Component {
           // the googleAPI passes a loaded prop to the container when it finishes loading google's api
     let bounds = new this.props.google.maps.LatLngBounds();
     // create a bound to base the map around given locations and centers based on marker click
-    this.locations.map((location) => (bounds.extend(location.position)))
+    this.state.locations.map((location) => (bounds.extend(location.position)))
 
     if (!this.props.loaded) { // by checking if the loaded prop has been passed to the container we can leave a loading message for the user
 
@@ -102,10 +103,10 @@ export class MapContainer extends React.Component {
           zoom={14}
           bounds={bounds}
           >
-          {this.locations.map((location) => ( //dynamically iterate through locations to generate markers
+          {this.state.locations.map((location) => ( //dynamically iterate through locations to generate markers
             <Marker 
               key = { location.title }
-              id = {location.name}
+              id = { location.name}
               ref = {this.onMarkerMounted}
               onClick =  {this.onMarkerClick }
               name = { location.name }
@@ -126,7 +127,7 @@ export class MapContainer extends React.Component {
         </div>
 
         <SettingsBar 
-          markerObjects = { this.tempMarkerList } 
+          markerObjects = { this.state.markerObjects } 
           // marker objects needs to be used to link the generated list item with actual map markers, but setting state in the mapContainer component seems to cause react to complain about setState loops
           google = { google }
           updateMarkers = { this.updateMarkers }
