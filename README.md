@@ -6,7 +6,7 @@ Please excuse the mess as I am attempting to reorganize the repository for easie
 
 ## Current projects
 
-- react-portfolio, a react based portfolio page
+- react-portfolio, a react based remake of my personal portfolio page
 
 ## demos folder contents
 
