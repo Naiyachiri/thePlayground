@@ -5,7 +5,7 @@ class Nav extends Component {
   render() {
     return (
       <div className="Nav">
-      nav
+      nav logo | Home | About | project dropdown
       </div>
     );
   }
