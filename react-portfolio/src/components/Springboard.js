@@ -5,7 +5,11 @@ class Springboard extends Component {
   render() {
     return (
       <div className="springboard">
-        springboard photo gallery
+        {/* first photo 1/.5 */}
+        {/* banner 1/.5 */}
+        {/* 2nd photo wide photo 2/1 */}
+        {/* info 3/.5 */}
+        {/* photo 3/.5 */}
       </div>
     );
   }

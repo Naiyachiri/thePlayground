@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
       <Nav />
-      <Route path='/' component={Springboard}/>
+      <Route exact path='/' component={Springboard}/>
       </div>
     );
   }
