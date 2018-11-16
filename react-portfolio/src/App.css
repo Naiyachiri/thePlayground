@@ -3,6 +3,99 @@ body {
   background-color: black;
 }
 
-.springboard {
-  display: flex
+.travel-springboard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.halfwidth {
+  width: 45%;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.image {
+  display: block;
+  margin: auto;
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.thirdheight {
+  max-height: 33vh;
+}
+
+.halfheight {
+  max-height: 70vh;
+}
+
+#top-right-banner {
+  background-color: rgb(161, 161, 161);
+  border-radius: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5em
+}
+
+#top-right-banner h1, h3, p {
+  width: 100%;
+}
+
+
+#top-left-slideshow {
+  border-radius: 5%;
+  display: block;
+  margin: auto;
+}
+
+#middle-wide-gear {
+  display: flex;
+}
+
+#middle-wide-banner {
+  background-color: rgb(161, 161, 161, 0.8);
+  position: absolute;
+  bottom: -85px;
+  left: 32px;
+  width: 95.1%;
+  height: 100px;
+  font-size: 2em;
+}
+
+#bottom-left-banner {
+  color: rgb(220, 223, 68);
+  bottom: 70%;
+  left: 30%;
+  font-family: 'Snell Roundhand, cursive';
+  font-size: 1.4em;
+  position: relative;
+}
+#bottom-left-banner h2{
+  display: flex;
+}
+.indent {
+  text-indent: 3em;
+}
+
+#bottom-right-slideshow {
+  margin: auto;
+}
+
+#bottom-right-slideshow-buttons {
+  bottom: 32px;
+  position: relative;
+  text-align:center;
+  width: 100%;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 50%;
+  border: 3px solid white;
+  height: 20px;
+  width: 20px;
+  margin: 0.25em;
+  cursor: pointer;
 }
