@@ -9,8 +9,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Nav />
-      <Route exact path='/' component={Springboard}/>
+        <Nav />
+        <main>
+          <Route exact path='/' component={Springboard}/>
+        </main>
       </div>
     );
   }
