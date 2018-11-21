@@ -1,0 +1,72 @@
+body {
+  color: white;
+  background-color: black;
+}
+
+.nav {
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+  background: rgb(155, 255, 102, 0.8);
+}
+
+main {
+  height: 95vh;
+  width: 100%;
+  margin: auto;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  width: 100%;   
+}
+
+.cell {
+  color: black;
+  background: white;
+  border: 1px solid black;
+  margin: auto;
+  height: calc(90vh/3);
+  overflow: hidden;
+  text-align: center;
+  flex-wrap: nowrap;
+}
+
+.cell1 {
+  width: calc(95vw/4);
+}
+
+.cell2 {
+  width: calc(95vw/2);
+}
+
+.cell3 {
+  width: calc(95vw*0.75);
+}
+
+.cell4 {
+  width: calc(95vw);
+}
+
+.cell-text {
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.cell-text-header {  
+  position: relative;
+  text-align: center;
+}
+
+.cell-text-footer {
+  position: relative;
+  top: 80%;
+  text-align: center;
+}
