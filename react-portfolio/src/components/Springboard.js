@@ -20,7 +20,9 @@ class Springboard extends Component {
             <span>buijvbio@gmail.com</span>
           </div>
         </div>
-        <div className='cell cell1'>cell 3</div>
+        <div className='cell cell1' id='js-calculator-cell'>
+          
+        </div>
         <div className='cell cell1'>cell 4</div>
         <div className='cell cell4'>cell 5, 6, 7, 8</div>
         <div className='cell cell1'>cell 9</div>
