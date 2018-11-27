@@ -37,6 +37,10 @@ main {
 .cell {
   color: black;
   background: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
   border: 1px solid black;
   margin: auto;
   height: calc(90vh/3);
@@ -67,6 +71,18 @@ main {
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
+  display: flex;
+  color: white;
+  background-color: black;
+
+}
+
+.cell-text:hover {
+  background-color: white;
+  color: black;
+  transition: ease-in 0.4s;
+  border-radius: 5px;
+  padding: 0.25 em;
 }
 
 .cell-text-header {  
@@ -75,90 +91,38 @@ main {
 }
 
 .cell-text-footer {
-  position: relative;
+  display: flex;
   top: 80%;
+  align-self: flex-end;
+  margin: 0 auto;
   text-align: center;
 }
+
+.project-link {
+  position: relative;
+  transition: ease-in 0.3;
+}
+
+.project-link:hover::before {
+  background-color: rgb(255, 255, 255, 0.8);
+  content: attr(data-tool-tip);
+  position: absolute;
+  margin: 0 auto;
+  left: 0px;
+  top: 3em;
+  transition: ease-in 0.5s;
+}
+
 /* JS CALCULATOR STYLES */
 #js-calculator-cell {
   display: flex;
   background-image: url('https://codepen.io/oknoblich/pen/jarQpa/image/small.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
 }
 
-#js-calculator-cell p {
-  display: flex;
-  color: white;
-  background-color: black;
-  align-self: flex-end;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#js-calculator-cell p:hover {
-  background-color: white;
-  color: black;
-  transition: ease-in 0.4s;
-  border-radius: 5px;
-  padding: 0.25 em;
-}
-
-#js-calc-link {
-  position: relative;
-  transition: 0.3;
-}
-
-#js-calc-link:hover::before {
-  background-color: rgb(255, 255, 255, 0.8);
-  content: attr(data-tool-tip);
-  position: absolute;
-  margin: 0 auto;
-  left: 0px;
-  top: 3em;
-  transition: ease-in 0.5s;
-}
 /* TIC TAC TOE STYLE */
 
 #tic-tac-toe-cell {
   background-image: url('https://codepen.io/oknoblich/pen/bYaPOB/image/small.png');
-  display: flex;
-  background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-position: center;
-  overflow: hidden;
-}
-
-#tic-tac-toe-cell p {
   display: flex;
-  color: white;
-  background-color: black;
-  align-self: flex-end;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#tic-tac-toe-cell p:hover {
-  background-color: white;
-  color: black;
-  transition: ease-in 0.4s;
-  border-radius: 5px;
-  padding: 0.25 em;
-}
-
-#tic-tac-toe-link {
-  position: relative;
-  transition: 0.3;
-}
-
-#tic-tac-toe-link:hover::before {
-  background-color: rgb(255, 255, 255, 0.8);
-  content: attr(data-tool-tip);
-  position: absolute;
-  margin: 0 auto;
-  left: 0px;
-  top: 3em;
-  transition: ease-in 0.5s;
 }

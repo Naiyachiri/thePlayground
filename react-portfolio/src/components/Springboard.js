@@ -21,18 +21,19 @@ class Springboard extends Component {
             <span>buijvbio@gmail.com</span>
           </div>
         </div>
-        <a href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer' id='js-calc-link' data-tool-tip='This is a javascript based calculator that performs the basic four functions in addition to some advanced functions. It uses jQuery, javascript, and bootstrap' target='_blank'>
+        <a href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer' className='project-link' id='js-calc-link' data-tool-tip='This is calculator that performs the basic four functions in addition to some advanced functions. It uses jQuery, javascript, and Bootstrap.' target='_blank'>
           <div className='cell cell1' id='js-calculator-cell'>
-            <p>JS Calculator</p>
+            <div className='cell-text cell-text-footer'>JS Calculator</div>
           </div>
         </a>
-        <a href='https://codepen.io/naiyachiri/full/bYaPOB/' rel='noopener noreferrer' id='tic-tac-toe-link' data-tool-tip='This is a tic tac toe game implementation using jQuery, javascript, and bootstrap.' target='_blank'>
+        <a href='https://codepen.io/naiyachiri/full/bYaPOB/' rel='noopener noreferrer' className='project-link' id='tic-tac-toe-link' data-tool-tip='This is a tic tac toe game implementation using jQuery, javascript, and Bootstrap.' target='_blank'>
           <div className='cell cell1' id='tic-tac-toe-cell'>
-            <p>Tic Tac Toe Game</p>
+            <div className='cell-text cell-text-footer'>Tic Tac Toe Game</div>
           </div>
         </a>
-        <div className='cell cell1'>Tic-Tac-Toe</div>
-        <div className='cell cell4'>cell 5, 6, 7, 8</div>
+        <div className='cell cell4'>cell 5, 6, 7, 8
+        DC Coffee Tracker
+        </div>
         <div className='cell cell1'>cell 9</div>
         <div className='cell cell3'>cell 10, 11, 12</div>
       </div>
