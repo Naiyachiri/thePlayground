@@ -26,7 +26,7 @@ class Springboard extends Component {
             <div className='cell-text cell-text-footer'>Tic Tac Toe Game</div>
           </div>
         </a>
-        <a href='naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer' className='project-link' id='neighborhood-map-link' data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
+        <a href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer' className='project-link' id='neighborhood-map-link' data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
           <div className='cell cell4' id='neighborhood-map-cell'>
             <div className='cell-text cell-text-footer'>
         Northern Virginia Coffee Tracker</div>
