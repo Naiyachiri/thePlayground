@@ -79,3 +79,29 @@ main {
   top: 80%;
   text-align: center;
 }
+
+#js-calculator-cell {
+  display: flex;
+  background-image: url('https://codepen.io/oknoblich/pen/jarQpa/image/small.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+#js-calculator-cell p {
+  display: flex;
+  color: white;
+  background-color: black;
+  align-self: flex-end;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#js-calculator-cell p:hover {
+  background-color: white;
+  color: black;
+  transition: ease-in 0.4s;
+  border-radius: 5px;
+  padding: 0.25 em;
+}

@@ -12,7 +12,8 @@ class Springboard extends Component {
 
         <div className='cell cell2'>
           <div className='cell-text cell-text-header'>
-            cell 1 & 2
+            cell 1 & 2 
+            {/* (contact, skills, summary) */}
           </div>
           <div className='cell-text cell-text-footer'>
             <span>James Bui</span> 
@@ -20,9 +21,11 @@ class Springboard extends Component {
             <span>buijvbio@gmail.com</span>
           </div>
         </div>
-        <div className='cell cell1' id='js-calculator-cell'>
-          
-        </div>
+        <a href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer' id='js-calc-link'>
+          <div className='cell cell1' id='js-calculator-cell'>
+            <p>JS Calculator</p>
+          </div>
+        </a>
         <div className='cell cell1'>cell 4</div>
         <div className='cell cell4'>cell 5, 6, 7, 8</div>
         <div className='cell cell1'>cell 9</div>
