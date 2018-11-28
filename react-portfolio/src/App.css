@@ -1,13 +1,22 @@
 body {
   color: white;
   background-color: black;
+  box-sizing: border-box;
 }
 
-.nav {
+nav {
+  display: flex;
+  justify-content: center;
+  align-self: center;
   width: 100%;
   height: 5vh;
   text-align: center;
   background: rgb(155, 255, 102, 0.8);
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 0 1em;
 }
 
 main {
@@ -28,10 +37,15 @@ main {
 .cell {
   color: black;
   background: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
   border: 1px solid black;
   margin: auto;
   height: calc(90vh/3);
   overflow: hidden;
+  position: relative;
   text-align: center;
   flex-wrap: nowrap;
 }
@@ -58,15 +72,69 @@ main {
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
+  display: flex;
+  color: white;
+  background-color: black;
+
+}
+
+.cell-text:hover {
+  background-color: white;
+  color: black;
+  transition: ease-in 0.4s;
+  border-radius: 5px;
+  padding: 0.25 em;
 }
 
 .cell-text-header {  
-  position: relative;
+  position: absolute;
+  top: 0;
   text-align: center;
+  width: 100%;
 }
 
 .cell-text-footer {
-  position: relative;
-  top: 80%;
+  display: flex;
+  bottom: 0;
+  position: absolute;
+  align-self: flex-end;
   text-align: center;
+  width: 100%;
+}
+
+.project-link {
+  position: relative;
+  transition: ease-in 0.3;
+}
+
+.project-link:hover::before {
+  background-color: rgb(255, 255, 255, 1);
+  content: attr(data-tool-tip);
+  position: absolute;
+  z-index: 1000;
+  margin: 0 auto;
+  left: 0px;
+  top: 3em;
+  transition: ease-in 0.5s;
+}
+
+/* JS CALCULATOR STYLES */
+#js-calculator-cell {
+  display: flex;
+  background-image: url('https://codepen.io/oknoblich/pen/jarQpa/image/small.png');
+}
+
+/* TIC TAC TOE STYLE */
+
+#tic-tac-toe-cell {
+  background-image: url('https://codepen.io/oknoblich/pen/bYaPOB/image/small.png');
+  background-size: 100% 100%;
+  display: flex;
+}
+
+/* Neighborhood Map (coffee tracker) */
+#neighborhood-map-cell {
+  background-image: url('./img/fend-neighborhood-map-thumbnail.png');
+  background-size: cover;
+  display: flex;
 }

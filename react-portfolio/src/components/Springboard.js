@@ -4,15 +4,11 @@ import React, { Component } from 'react';
 class Springboard extends Component {
   render() {
     return (
-      <div className="grid">
-         {/* lets make a grid here 4x3 
-          note: cell(1-4) refer to number of cells on the grid the div takes up
-          to remove all space between divs, set cell margin to 0 and parent vh/vw to 100%
-        */}
-
+      <section className="grid">
         <div className='cell cell2'>
           <div className='cell-text cell-text-header'>
-            cell 1 & 2
+            cell 1 & 2 
+            {/* (contact, skills, summary) */}
           </div>
           <div className='cell-text cell-text-footer'>
             <span>James Bui</span> 
@@ -20,12 +16,25 @@ class Springboard extends Component {
             <span>buijvbio@gmail.com</span>
           </div>
         </div>
-        <div className='cell cell1'>cell 3</div>
-        <div className='cell cell1'>cell 4</div>
-        <div className='cell cell4'>cell 5, 6, 7, 8</div>
+        <a href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer' className='project-link' id='js-calc-link' data-tool-tip='This is calculator that performs the basic four functions in addition to some advanced functions. It uses jQuery, javascript, and Bootstrap.' target='_blank'>
+          <div className='cell cell1' id='js-calculator-cell'>
+            <div className='cell-text cell-text-footer'>JS Calculator</div>
+          </div>
+        </a>
+        <a href='https://codepen.io/naiyachiri/full/bYaPOB/' rel='noopener noreferrer' className='project-link' id='tic-tac-toe-link' data-tool-tip='This is a tic tac toe game implementation using jQuery, javascript, and Bootstrap.' target='_blank'>
+          <div className='cell cell1' id='tic-tac-toe-cell'>
+            <div className='cell-text cell-text-footer'>Tic Tac Toe Game</div>
+          </div>
+        </a>
+        <a href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer' className='project-link' id='neighborhood-map-link' data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
+          <div className='cell cell4' id='neighborhood-map-cell'>
+            <div className='cell-text cell-text-footer'>
+        Northern Virginia Coffee Tracker</div>
+          </div>
+        </a>
         <div className='cell cell1'>cell 9</div>
         <div className='cell cell3'>cell 10, 11, 12</div>
-      </div>
+      </section>
     );
   }
 }

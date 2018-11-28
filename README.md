@@ -48,3 +48,7 @@ My daily subscriptions to various coding challenges
 ### languages subscripted to
 
 - Javascript
+
+#### Notes:
+
+11/28/18: All projects have their own designated branches and will now be added to the master branch through pull requests.
