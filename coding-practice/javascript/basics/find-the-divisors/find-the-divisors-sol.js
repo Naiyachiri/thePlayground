@@ -14,5 +14,12 @@ Test.assertDeepEquals(divisors(13), "13 is prime");
 
 // personal solution
 function divisors(integer) {
-
+  let divisors = [];
+  for (let i = 2; i< integer; i++) { // starting at an integer > 1 to search for factors
+    if (integer % i === 0) { // check if the number can be completely divided by itself
+      divisors = [...divisors, i]; // spread operator to push each divisor into our answer array
+    }
+  }
+  let answer = (divisors.length > 0) ? divisors : `${integer} is prime`; // used ternary operator to simplify conditions
+  return answer;
 };
