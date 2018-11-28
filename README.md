@@ -40,3 +40,11 @@ A folder of project drafts and ideas.
 - hnails, first iteration of a local  business website
 - portfolio2, second iteration of a project portfolio
 - portfolio, initial iteration of a project portfolio
+
+## coding-practice
+
+My daily subscriptions to various coding challenges
+
+### languages subscripted to
+
+- Javascript
