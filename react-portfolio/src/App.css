@@ -31,7 +31,7 @@ main {
   height: 100%;
   margin: auto;
   text-align: center;
-  width: 100%;   
+  width: 100%;
 }
 
 .cell {
@@ -86,7 +86,7 @@ main {
   padding: 0.25 em;
 }
 
-.cell-text-header {  
+.cell-text-header {
   position: absolute;
   top: 0;
   text-align: center;
@@ -105,6 +105,7 @@ main {
 .project-link {
   position: relative;
   transition: ease-in 0.3;
+  margin: auto;
 }
 
 .project-link:hover::before {
@@ -113,7 +114,7 @@ main {
   position: absolute;
   z-index: 1000;
   margin: 0 auto;
-  left: 0px;
+  left: 0.5em;
   top: 3em;
   transition: ease-in 0.5s;
 }
