@@ -7,9 +7,23 @@ class Springboard extends Component {
       <section className="grid">
         <div className='cell cell2'>
           <div className='cell-text cell-text-header'>
-            cell 1 & 2
+            Profile
             {/* (contact, skills, summary) */}
           </div>
+          <a href='https://github.com/Naiyachiri/thePlayground' className='project-link'>
+          <img className='cell-image' src={require('../img/GitHub-Mark-120px-plus.png')} alt='github link'/>
+          My personal repository
+          </a>
+          <p className='cell-blog-content'>
+          Hi there! I am a recently graduated front-end web developer looking for new opportunities! I have a nanodegree from
+          <a className='article-link' id='udacity-degree-link' data-tool-tip='Google and AT&T backed coding nanodegree which included over 1200 hours of intensive deadline-based self study. Material covered included HTML5, CSS, ES6 JS, frameworks such as React, Angular, Ember with dedicated projects in React.' href='https://confirm.udacity.com/PVJXEUHH'>
+            Udacity
+          </a>
+          and a certification from
+          <a className='article-link' id='fcc-cert-link' data-tool-tip='12 Front end projects (Simon Says game, calculator, wiki search engine) covering HTML, CSS and over 400 hours of pure javascript algorithms and data structures practice.' href='https://www.freecodecamp.org/naiyachiri/front-end-certification'>
+            FreeCodeCamp
+          </a>.
+          </p>
           <div className='cell-text cell-text-footer'>
             <span>James Bui</span>
             <span>757.746.8618</span>
