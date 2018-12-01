@@ -5,12 +5,11 @@ class Springboard extends Component {
   render() {
     return (
       <section className="grid">
-        <div className='cell cell2'>
+        <div className='cell cell2' id='profile'>
           <div className='cell-text cell-text-header'>
             Profile
-            {/* (contact, skills, summary) */}
           </div>
-          <a href='https://github.com/Naiyachiri/thePlayground' className='project-link'>
+          <a href='https://github.com/Naiyachiri/thePlayground' className='project-link project-link-text'>
           <img className='cell-image' src={require('../img/GitHub-Mark-120px-plus.png')} alt='github link'/>
           My personal repository
           </a>

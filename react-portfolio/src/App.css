@@ -147,6 +147,26 @@ main {
   transition: ease-in 0.5s;
 }
 
+
+.project-link-text {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+  color: rgb(0, 0, 0);
+  background-color: rgb(119, 119, 119);
+  transition: ease-in 0.4s;
+  border-radius: 5px;
+}
+
+.project-link-text:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 5px;
+  padding: 0.25 em;
+}
+
 /* JS CALCULATOR STYLES */
 #js-calculator-cell {
   display: flex;
@@ -170,9 +190,11 @@ main {
 
 #udacity-degree-link {
   position: relative;
+  transition: ease-in 0.4;
 }
 
-#udacity-degree-link:hover::before {
+#udacity-degree-link::before {
+  visibility: hidden;
   background-color: rgb(199, 199, 199);
   content: attr(data-tool-tip);
   position: absolute;
@@ -182,13 +204,20 @@ main {
   top: -50px;
   width: 400px;
   border-radius: 5px;
+}
+
+#udacity-degree-link:hover::before {
+  visibility: visible;
+
 }
 
 #fcc-cert-link {
   position: relative;
+  transition: ease-in 0.4;
 }
 
-#fcc-cert-link:hover::before {
+#fcc-cert-link::before {
+  visibility: hidden;
   background-color: rgb(199, 199, 199);
   content: attr(data-tool-tip);
   position: absolute;
@@ -198,4 +227,21 @@ main {
   top: -50px;
   width: 400px;
   border-radius: 5px;
+}
+
+#fcc-cert-link:hover::before {
+  visibility: visible;
+
+  }
+
+  #profile {
+    transition: ease-in 2s linear 1s;
+    color: white;
+    background: rgb(119, 119, 119);
+    transition: ease-in 0.4s;
+  }
+
+  #profile:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
   }
