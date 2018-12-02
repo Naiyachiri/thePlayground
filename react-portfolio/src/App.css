@@ -9,7 +9,7 @@ nav {
   justify-content: center;
   align-self: center;
   width: 100%;
-  height: 5vh;
+  height: 5%;
   text-align: center;
   background: rgb(155, 255, 102, 0.8);
 }
@@ -20,7 +20,7 @@ nav {
 }
 
 main {
-  height: 95vh;
+  height: 100%;
   width: 100%;
   margin: auto;
 }
@@ -30,17 +30,17 @@ main {
   flex-wrap: wrap;
   height: 100%;
   margin: auto;
-  text-align: center;
   width: 100%;
 }
 
 .cell {
   display: flex;
   color: black;
-  background: white;
+  /* background: white;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
+  background: #ffffff no-repeat center;
   overflow: hidden;
   border: 1px solid black;
   margin: auto;
@@ -73,24 +73,22 @@ main {
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
-  display: flex;
   color: white;
   background-color: black;
+  transition: ease-in 0.4s;
 
 }
 
 .cell-text:hover {
   background-color: white;
   color: black;
-  transition: ease-in 0.4s;
   border-radius: 5px;
-  padding: 0.25 em;
+  padding: 0.25em;
 }
 
 .cell-text-header {
   position: absolute;
   top: 0;
-  text-align: center;
   width: 100%;
 }
 
@@ -99,7 +97,6 @@ main {
   bottom: 0;
   position: absolute;
   align-self: flex-end;
-  text-align: center;
   width: 100%;
 }
 
@@ -126,7 +123,7 @@ main {
 }
 
 .article-link {
-  display: -inline-flex;
+  display: inline-flex;
   padding: 0 0.5em;
 }
 
@@ -142,29 +139,11 @@ main {
   position: absolute;
   z-index: 1000;
   margin: 0 auto;
+  min-height: 30px;
+  justify-content: center;
   left: 0.5em;
   top: 3em;
   transition: ease-in 0.5s;
-}
-
-
-.project-link-text {
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: space-evenly;
-  color: rgb(0, 0, 0);
-  background-color: rgb(119, 119, 119);
-  transition: ease-in 0.4s;
-  border-radius: 5px;
-}
-
-.project-link-text:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
-  border-radius: 5px;
-  padding: 0.25 em;
 }
 
 /* JS CALCULATOR STYLES */
@@ -200,7 +179,7 @@ main {
   position: absolute;
   z-index: 1000;
   margin: 0 auto;
-  left: -300px;
+  left: 0;
   top: -50px;
   width: 400px;
   border-radius: 5px;
@@ -223,7 +202,7 @@ main {
   position: absolute;
   z-index: 1000;
   margin: 0 auto;
-  left: -300px;
+  left: 0;
   top: -50px;
   width: 400px;
   border-radius: 5px;

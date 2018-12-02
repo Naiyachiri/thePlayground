@@ -9,9 +9,9 @@ class Springboard extends Component {
           <div className='cell-text cell-text-header'>
             Profile
           </div>
-          <a href='https://github.com/Naiyachiri/thePlayground' className='project-link project-link-text'>
-          <img className='cell-image' src={require('../img/GitHub-Mark-120px-plus.png')} alt='github link'/>
-          My personal repository
+          <a href='https://github.com/Naiyachiri/thePlayground' className='cell-text'>
+          <img className='cell-image' src={require('../img/GitHub-Mark-64px.png')} alt='github link'/>
+          <p className='cell-text'>GitHub</p>
           </a>
           <p className='cell-blog-content'>
           Hi there! I am a recently graduated front-end web developer looking for new opportunities! I have a nanodegree from
@@ -23,6 +23,9 @@ class Springboard extends Component {
             FreeCodeCamp
           </a>.
           </p>
+          <a href='#' className='cell-text'>
+            <img className='cell-image' src={require('../img/In-2C-75px-R.png')} alt='linkedin url'/>
+          </a>
           <div className='cell-text cell-text-footer'>
             <span>James Bui</span>
             <span>757.746.8618</span>
@@ -31,12 +34,12 @@ class Springboard extends Component {
         </div>
         <a className='project-link' id='js-calc-link' href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer'  data-tool-tip='This is calculator that performs the basic four functions in addition to some advanced functions. It uses jQuery, javascript, and Bootstrap.' target='_blank'>
           <div className='cell cell1' id='js-calculator-cell'>
-            <div className='cell-text cell-text-footer'>JS Calculator</div>
+            <div className='cell-text cell-text-header'>JS Calculator</div>
           </div>
         </a>
         <a className='project-link' id='tic-tac-toe-link' href='https://codepen.io/naiyachiri/full/bYaPOB/' rel='noopener noreferrer'  data-tool-tip='This is a tic tac toe game implementation using jQuery, javascript, and Bootstrap.' target='_blank'>
           <div className='cell cell1' id='tic-tac-toe-cell'>
-            <div className='cell-text cell-text-footer'>Tic Tac Toe Game</div>
+            <div className='cell-text cell-text-header'>Tic Tac Toe Game</div>
           </div>
         </a>
         <a className='project-link' id='neighborhood-map-link' href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer'  data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
@@ -50,6 +53,14 @@ class Springboard extends Component {
             <h3>Recent Activity: </h3>
           </div>
           <div className='cell-blog-content'>
+          <h4 className='cell-blog-subheading'>2 Dec 2018: </h4>
+            <p className='cell-blog-article'>
+              Added coding-practice: persistent-bugger
+            </p>
+            <h4 className='cell-blog-subheading'>1 Dec 2018: </h4>
+            <p className='cell-blog-article'>
+              Added coding-practice: format-a-string-of-names, square-every-digit
+            </p>
             <h4 className='cell-blog-subheading'>30 Nov 2018: </h4>
             <p className='cell-blog-article'>
               Added coding-practice: format-a-string-of-names, square-every-digit
