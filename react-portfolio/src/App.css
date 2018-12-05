@@ -43,7 +43,6 @@ main {
   border: 1px solid black;
   margin: auto;
   height: calc(90vh/3);
-  overflow: hidden;
   position: relative;
   text-align: center;
   flex-wrap: nowrap;
@@ -106,6 +105,8 @@ main {
 
 .cell-blog {
   flex-wrap: wrap;
+  transition: ease-in 0.4s;
+  overflow-y: scroll;
 }
 
 .cell-blog-content {
@@ -126,22 +127,23 @@ main {
   padding: 0 0.5em;
 }
 
-.project-link {
+.cell-link {
   position: relative;
   transition: ease-in 0.3;
+  width: 100%;
   margin: auto;
 }
 
-.project-link:hover::before {
+.cell-link:hover::before {
   background-color: rgb(255, 255, 255, 1);
+  font-size: 0.8em;
   content: attr(data-tool-tip);
   position: absolute;
   z-index: 1000;
   margin: 0 auto;
   min-height: 30px;
+  width: 100%;
   justify-content: center;
-  left: 0.5em;
-  top: 3em;
   transition: ease-in 0.5s;
 }
 
@@ -167,6 +169,8 @@ main {
   display: flex;
 }
 
+/* UNIQUE LINK styles */
+
 #udacity-degree-link {
   position: relative;
   transition: ease-in 0.4;
@@ -180,7 +184,7 @@ main {
   z-index: 1000;
   margin: 0 auto;
   left: 0;
-  top: -50px;
+  bottom: 0px;
   width: 400px;
   border-radius: 5px;
 }
@@ -203,17 +207,21 @@ main {
   z-index: 1000;
   margin: 0 auto;
   right: 0px;
-  top: -50px;
+  bottom: 0px;
   width: 400px;
   border-radius: 5px;
 }
 
 #fcc-cert-link:hover::before {
   visibility: visible;
-
   }
 
-  #linkedin-link::hover {
-    background-image: url('./img/In-Black-75px-R.png');
-    display: flex;
-  }
+
+#linkedin-link {
+  min-height: 40px;
+}
+
+#linkedin-link::hover {
+  background-image: url('./img/In-Black-75px-R.png');
+  display: flex;
+}

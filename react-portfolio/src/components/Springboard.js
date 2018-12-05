@@ -33,17 +33,21 @@ class Springboard extends Component {
             </a>
           </div>
         </div>
-        <a className='project-link' id='js-calc-link' href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer'  data-tool-tip='This is calculator that performs the basic four functions in addition to some advanced functions. It uses jQuery, javascript, and Bootstrap.' target='_blank'>
-          <div className='cell cell1' id='js-calculator-cell'>
-            <div className='cell-text cell-header'>JS Calculator</div>
+        <div className='cell cell1' id='js-calculator-cell'>
+          <div className='cell-header'>
+            <a className='cell-link' id='js-calc-link' href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer'  data-tool-tip='This is calculator that performs the basic four functions in addition to some advanced functions. It uses jQuery, javascript, and Bootstrap.' target='_blank'>
+              JS Calculator
+            </a>
           </div>
-        </a>
-        <a className='project-link' id='tic-tac-toe-link' href='https://codepen.io/naiyachiri/full/bYaPOB/' rel='noopener noreferrer'  data-tool-tip='This is a tic tac toe game implementation using jQuery, javascript, and Bootstrap.' target='_blank'>
-          <div className='cell cell1' id='tic-tac-toe-cell'>
-            <div className='cell-text cell-header'>Tic Tac Toe Game</div>
+        </div>
+        <div className='cell cell1' id='tic-tac-toe-cell'>
+        <div className='cell-header'>
+            <a className='cell-link' id='tic-tac-toe-link' href='https://codepen.io/naiyachiri/full/bYaPOB/' rel='noopener noreferrer'  data-tool-tip='This is a tic tac toe game implementation using jQuery, javascript, and Bootstrap.' target='_blank'>
+              Tic Tac Toe Game
+            </a>
           </div>
-        </a>
-        <a className='project-link' id='neighborhood-map-link' href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer'  data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
+        </div>
+        <a className='cell-link' id='neighborhood-map-link' href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer'  data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
           <div className='cell cell4' id='neighborhood-map-cell'>
             <div className='cell-text cell-footer'>
         Northern Virginia Coffee Tracker</div>
@@ -54,6 +58,10 @@ class Springboard extends Component {
             <h3>Recent Activity: </h3>
           </div>
           <div className='cell-blog-content'>
+          <h4 className='cell-blog-subheading'>5 Dec 2018: </h4>
+            <p className='cell-blog-article'>
+              Added coding-practice: find-the-int, valid-braces, multiples-of-3-or-5
+            </p>
           <h4 className='cell-blog-subheading'>2 Dec 2018: </h4>
             <p className='cell-blog-article'>
               Added coding-practice: persistent-bugger
