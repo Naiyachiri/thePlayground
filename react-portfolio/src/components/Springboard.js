@@ -25,24 +25,24 @@ class Springboard extends Component {
             <a href='https://www.linkedin.com/in/buijames' target='_blank' rel='noopener noreferrer' id='linkedin-link'>
               Linkedin
             </a>
-            <a href='https://github.com/Naiyachiri/thePlayground'>
+            <a href='https://github.com/Naiyachiri/thePlayground' id='github-link'>
               GitHub
             </a>
-            <a href='https://drive.google.com/open?id=14wLbcDQbXjqnTSxmApYWtM0KcckNJQ_g4OXqIe7TJ-0' target='_blank' rel='noopener noreferrer'>
+            <a href='https://drive.google.com/open?id=14wLbcDQbXjqnTSxmApYWtM0KcckNJQ_g4OXqIe7TJ-0' id='resume-link' target='_blank' rel='noopener noreferrer'>
               Resume
             </a>
           </div>
         </div>
         <div className='cell cell1' id='js-calculator-cell'>
           <div className='cell-header'>
-            <a className='cell-link' id='js-calc-link' href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer'  data-tool-tip='This is calculator that performs the basic four functions in addition to some advanced functions. It uses jQuery, javascript, and Bootstrap.' target='_blank'>
+            <a className='cell-link project-link' id='js-calc-link' href='https://codepen.io/naiyachiri/full/jarQpa/' rel='noopener noreferrer'  data-tool-tip='This is calculator that performs the basic four functions in addition to some advanced functions. It uses jQuery, javascript, and Bootstrap.' target='_blank'>
               JS Calculator
             </a>
           </div>
         </div>
         <div className='cell cell1' id='tic-tac-toe-cell'>
         <div className='cell-header'>
-            <a className='cell-link' id='tic-tac-toe-link' href='https://codepen.io/naiyachiri/full/bYaPOB/' rel='noopener noreferrer'  data-tool-tip='This is a tic tac toe game implementation using jQuery, javascript, and Bootstrap.' target='_blank'>
+            <a className='cell-link project-link' id='tic-tac-toe-link' href='https://codepen.io/naiyachiri/full/bYaPOB/' rel='noopener noreferrer'  data-tool-tip='This is a tic tac toe game implementation using jQuery, javascript, and Bootstrap.' target='_blank'>
               Tic Tac Toe Game
             </a>
           </div>
