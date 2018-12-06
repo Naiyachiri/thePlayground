@@ -49,7 +49,7 @@ class Springboard extends Component {
         </div>
         <div className='cell cell4' id='neighborhood-map-cell'>
           <div className='cell-header'>
-            <a className='cell-link' id='neighborhood-map-link' href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer'  data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
+            <a className='cell-link project-link' id='neighborhood-map-link' href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer'  data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
               Northern Virginia Coffee Tracker
             </a>
           </div>
@@ -60,6 +60,10 @@ class Springboard extends Component {
             <h3>Recent Activity: </h3>
           </div>
           <div className='cell-blog-content'>
+          <h4 className='cell-blog-subheading'>6 Dec 2018: </h4>
+            <p className='cell-blog-article'>
+              Added coding-practice: scramblies
+            </p>
           <h4 className='cell-blog-subheading'>5 Dec 2018: </h4>
             <p className='cell-blog-article'>
               Added coding-practice: find-the-int, valid-braces, multiples-of-3-or-5
