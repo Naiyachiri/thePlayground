@@ -123,7 +123,7 @@ main {
 }
 
 .inline-link {
-  display: inline-flex;
+  display: inline;
   padding: 0 0.5em;
 }
 
@@ -165,7 +165,7 @@ main {
 /* Neighborhood Map (coffee tracker) */
 #neighborhood-map-cell {
   background-image: url('./img/fend-neighborhood-map-thumbnail.png');
-  background-size: cover;
+  background-size: 100% auto;
   display: flex;
 }
 
@@ -183,15 +183,14 @@ main {
   position: absolute;
   z-index: 1000;
   margin: 0 auto;
-  left: 0;
-  bottom: 0px;
+  right: 0;
+  bottom: -50px;
   width: 400px;
   border-radius: 5px;
 }
 
 #udacity-degree-link:hover::before {
   visibility: visible;
-
 }
 
 #fcc-cert-link {

@@ -11,13 +11,13 @@ class Springboard extends Component {
             <span>757.746.8618</span>
             <span>buijvbio@gmail.com</span>
           </div>
-          <div className='cell-body'>
+          <div className='cell-body inline'>
             Hi there! I am a recently graduated front-end web developer looking for new opportunities! I have a nanodegree from
-              <a className='inline-link' id='udacity-degree-link' data-tool-tip='Google and AT&T backed coding nanodegree which included over 1200 hours of intensive deadline-based self study. Material covered included HTML5, CSS, ES6 JS, frameworks such as React, Angular, Ember with dedicated projects in React.' href='https://confirm.udacity.com/PVJXEUHH'>
+              <a className='cell-link inline-link' id='udacity-degree-link' data-tool-tip='Google and AT&T backed coding nanodegree which included over 1200 hours of intensive deadline-based self study. Material covered included HTML5, CSS, ES6 JS, frameworks such as React, Angular, Ember with dedicated projects in React.' href='https://confirm.udacity.com/PVJXEUHH'>
                 Udacity
               </a>
             and a certification from
-              <a className='inline-link' id='fcc-cert-link' data-tool-tip='12 Front end projects (Simon Says game, calculator, wiki search engine) covering HTML, CSS and over 400 hours of pure javascript algorithms and data structures practice.' href='https://www.freecodecamp.org/naiyachiri/front-end-certification'>
+              <a className='cell-link inline-link' id='fcc-cert-link' data-tool-tip='12 Front end projects (Simon Says game, calculator, wiki search engine) covering HTML, CSS and over 400 hours of pure javascript algorithms and data structures practice.' href='https://www.freecodecamp.org/naiyachiri/front-end-certification'>
               FreeCodeCamp
             </a>.
           </div>
@@ -47,12 +47,14 @@ class Springboard extends Component {
             </a>
           </div>
         </div>
-        <a className='cell-link' id='neighborhood-map-link' href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer'  data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
-          <div className='cell cell4' id='neighborhood-map-cell'>
-            <div className='cell-text cell-footer'>
-        Northern Virginia Coffee Tracker</div>
+        <div className='cell cell4' id='neighborhood-map-cell'>
+          <div className='cell-header'>
+            <a className='cell-link' id='neighborhood-map-link' href='http://naiyachiri.github.io/fend-neighborhood-map' rel='noopener noreferrer'  data-tool-tip='React based google API powered application that tracks coffee shops in the Springfield, VA area. It uses Google and Foursquare to search, and dynamically generate info windows for the user.' target='_blank'>
+              Northern Virginia Coffee Tracker
+            </a>
           </div>
-        </a>
+        </div>
+
         <div className='cell cell1 cell-blog'>
           <div className='cell-text cell-header'>
             <h3>Recent Activity: </h3>
