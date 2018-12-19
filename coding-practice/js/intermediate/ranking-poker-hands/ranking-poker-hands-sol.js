@@ -1,3 +1,4 @@
+"use strict";
 // url ref: https://www.codewars.com/kata/5739174624fc28e188000465/train/javascript
 
 // A famous casino is suddenly faced with a sharp decline of their revenues. They decide to offer Texas hold'em also online. Can you help them by writing an algorithm that can rank poker hands?
@@ -51,18 +52,7 @@
 // }
 
 
-/** hand types
- * high card
- * pair
- * two pair
- * three of a kind
- * straight
- * flush
- * full house
- * four of a kind
- * straight flush
- * royal flush
- */
+
 let Result = { "win": 1, "loss": 2, "tie": 3 };
 
 let values = { // object of all the values of each card
@@ -78,157 +68,234 @@ let values = { // object of all the values of each card
   'J':11,
   'Q':12,
   'K':13,
-  'A':14
+  'A':14,
+  'C': 'Clubs',
+  'S': 'Spades',
+  'H': 'Hearts',
+  'D': 'Diamonds',
 };
 
-let suits = ['D','C','S','H'];
-let handType = [
-  'high card', // highest value card
-  'pair', // two cards of the same value
-  'two pair', // two sets of pairs
-  'three of a kind', // three cards of the same value
-  'straight', // five cards in sequential order with the ace before a 2 or after a king
-  'flush', // five cards of the same suit
-  'full house', // three of a kind and a pair in a single hand
-  'four of a kind', // four cards of the same value
-  'straight flush', // five cards in sequential order of the same suit
-  'royal flush' // straight flush from ace to ten
-];
-
-function checkHandVsType(hand, type) {
-  let handAr = hand.split(' ').sort();
-  switch (type) {
-    case 'royal flush':
-      checkRF(handAr);
-      break;
-    case 'straight flush':
-      checkSF(handAr);
-      break;
-    case 'four of a kind':
-      checkFOAK(handAr);
-      break;
-    case 'full house':
-      checkFH(handAr);
-      break;
-    case 'flush':
-      checkF(handAr);
-      break;
-    case 'straight':
-      checkS(handAr);
-      break;
-    case 'three of a kind':
-      checkTOAK(handAr);
-      break;
-    case 'two pair':
-      checkTP(handAr);
-      break;
-    case 'pair':
-    checkP(handAr);
-    default: // high card
-    checkHC(handAr);
-    break;
-  }
+function sortHand(hand) { // function that evaluates each card based on the value table
+  return hand.split(' ').sort(function(a,b) {
+    return values[a[0]]-values[b[0]];
+  })
 }
-//check three of a kind
-//check pair
 
-// if flush + straight -> check straight flush -> royal flush
-// if pair + three of a kind -> check full house
-// if none -> check high card
+//hand evaluation function return an object {match:boolean, high: string, suit: string}
 
-// all our hand evaluators must take an array of elements which represents each cards value ex: '4S 5H 6H TS AC'
+let CFRF = (hand) => { //checkForRoyalFlush
+  let res = sortHand(hand);
+  let suit = res[0][1];
+  let royal = 'Tx Jx Qx Kx Ax'.replace(/x/g, suit);
 
+  if (CFSF(hand)) {
+    if (res.join(' ') === royal){
+      console.log('ITS A ROYAL FLUSH BABY of ' + values[suit]);
+      return {
+        match: true,
+        high: res[res.length-1][0],
+        suit: suit
+      };
+    } else { return false;}
+  } else { return false;}
+};
+
+let CFSF = (hand) => { // checkForStraightFlush
+  let res = sortHand(hand);
+  let high = res[res.length-1][0];
+  let suit = res[0][1];
+
+  if (CFS(hand)) { // check for a straight
+    if (CFF(hand)) {
+      return {
+        match: true,
+        high: high,
+        suit: suit
+      };
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+};
 
 let CFOAK = (hand) => { //checkFourOfAKind
-  let res = hand.split(' ').sort(); // convert hand string to an array of cards
-  console.log(res);
+
+  let res = sortHand(hand); // convert hand string to an array of cards
   //store the first card to begin checking for same value cards
-  let checkValue = res[0][0]; // set the value to begin checking against the hand
-  let kindCount = 0; // storing the number of same value cards
-  for(let i=1;i<res.length;i++) {
-    if(res[i][0] === checkValue) {
-      console.log(checkValue);
-      kindCount++;
+  let hash = {};
+  let high;
+  let suit;
+  res.forEach((card) =>{
+    if (hash[card[0]] === undefined) { // initialize prop
+      hash[card[0]] = 1;
     } else {
-      checkValue = res[i][0];
-      kindCount = 1;
+      hash[card[0]] ++; // increment
     }
+  });
+
+  function getKeyByValue(object, value) { // this searches through an object for a specific key value pair based on value
+    return Object.keys(object).find(key => object[key] === value);
+  };
+
+  high = getKeyByValue(hash, 4);
+  if (high !== undefined) {
+    return {
+      match: true,
+      high: high,
+      suit: suit
+    };
+  } else {
+    return false;
   }
-  console.log(kindCount);
-  if (kindCount >= 4) {
-    return true;
+};
+
+let CFFH = (hand) => { // checkForFullHouse
+  let res = sortHand(hand); // convert hand string to an array of cards
+  // create a hash map which will tally up quantities of each value
+  let hash = {};
+  res.forEach((card) => { // generate an object table tallying each time a value appears
+    if(hash[card[0]] === undefined) {
+      hash[card[0]] = 0; // initialize the property
+    }
+      hash[card[0]]++;
+  });
+  let keys = Object.getOwnPropertyNames(hash); // generate an array with all the values in hand
+  let pairValue; // store the pair
+  let tripleValue; // store the triple
+  keys.forEach((key=> {
+    if (hash[key] == 2) {
+      pairValue = key;
+    }
+    if (hash[key] == 3) {
+      tripleValue = key;
+    }
+  }));
+  let high = [tripleValue, pairValue]; // set high value
+  let suit; // initialize
+
+  if (pairValue !== undefined && tripleValue !== undefined) {
+    console.log(tripleValue + ' high Full House!');
+    return {match: true, high: high, suit: suit};
   } else {
     return false;
   }
 };
 
 let CFF = (hand) => { // checkForFlush
-  let res = hand.split(' ').sort(); // convert hand string to an array of cards
-  console.log(res);
+  let res = sortHand(hand); // convert hand string to an array of cards
   let suit = res[0][1]; // the flush suit
   let mismatch = 0;
+  let high;
+
   res.forEach((card) => { // push all the suits on to our flush holder
-    console.log(suit + ' card: '+ card);
     if (card[1] !==  suit) {
       mismatch++;
     }
+    high = card[0];
   });
+
   if (mismatch > 0) {
     return false;
   } else {
-    return true;
+    return {match: true, high: high, suit: suit};
   }
 }
 
 let CFS = (hand) => { // checkForStraight
-  let res = hand.split(' ').sort(); // convert hand string to an array of cards
-  console.log(res);
-  let init = res[0][0]; //initial value
-  let end = res[res.length-1][0]; // last value
+  let res = sortHand(hand); // convert hand string to an array of cards
+  let init = values[res[0][0]]; //initial value
+  let end = values[res[res.length-1][0]]; // last value
   let straightCt = 0;
-  for (let i=init,k=0; i<end;i++,k++) {
-    console.log(res[k][0] + ' vs. ' + i);
-    if (res[k][0] != i){ // note: we don't use two '=' because res[k][0] returns a string but `i` is an number
-      straightCt ++;
-    };
+  let suit;
+  let high = res[res.length-1][0];
+ // generate  an array with just hand values
+  let straight = [];
+
+  res.forEach((card)=> {
+    straight.push(card[0]);
+  });
+
+for (let i=0; i<res.length; i++) {
+  if (i === values[straight[i]]-init) {
+    straightCt++;
   }
-  console.log(straightCt);
-  if (straightCt > 0) {
+};
+
+  if (straightCt !== 5) {
     return false;
   } else {
-    return true;
+    return {match:true, high: high, suit: suit};
   }
 };
 
 let CFTOAK = (hand) => { // checkForThreeOfAKind
-  let res = hand.split(' ').sort(); // convert hand string to an array of cards
-  console.log(res);
+  let res = sortHand(hand); // convert hand string to an array of cards
   // create a hash map which will tally up quantities of each value
   let hash = {};
+  let suit;
+
   res.forEach((card) => {
     if(hash[card[0]] === undefined) {
       hash[card[0]] = 0; // initialize the property
     }
       hash[card[0]]++;
   });
-  let setOfThree = 0;
+  let setOfThree;
   let keys = Object.getOwnPropertyNames(hash);
   keys.forEach((property) => {
     if (hash[property] === 3) {
       setOfThree = property;
     }
   });
-  console.log(hash);
-  if (setOfThree > 0) {
-    return 'Three of a kind: ' + setOfThree;
+  if (setOfThree !== undefined) {
+    return {match: true, high: setOfThree, suit: suit};
   } else {
     return false;
   }
 };
 
-let CFP = (hand) => { // checkForAPair
-  let res = hand.split(' ').sort(); // convert hand string to an array of cards
-  console.log(res);
+let CFTP = (hand) => { // checkForTwoPair
+  let res = sortHand(hand); // convert hand string to an array of cards
+  // create a hash map which will tally up quantities of each value
+  let hash = {};
+  let pairs = 0;
+  res.forEach((card) => {
+    if(hash[card[0]] === undefined) {
+      hash[card[0]] = 0; // initialize the property
+    }
+      hash[card[0]]++; // increment for each time duplicate card value
+  });
+  let pair;
+  let suit;
+  let keys = Object.getOwnPropertyNames(hash);
+
+  keys.forEach((property) => {
+    if (hash[property] === 2) {
+      pairs++;
+      if (pair !== undefined) {
+        pair = property;
+      } else {
+        if (Number(pair) > Number(property)) {
+          // do nothing
+        } else {
+          pair = property;
+        }
+      }
+    }
+  });
+
+  if (pair !== undefined && pairs == 2) {
+    return {match: true, high: pair, suit: suit};
+  }
+  else {
+    return false;
+  }
+};
+
+let CFP = (hand) => { // checkForAPair // also checks for two pairs
+  let res = sortHand(hand); // convert hand string to an array of cards
   // create a hash map which will tally up quantities of each value
   let hash = {};
   res.forEach((card) => {
@@ -237,30 +304,127 @@ let CFP = (hand) => { // checkForAPair
     }
       hash[card[0]]++;
   });
-  let pair = 0;
+  let pair;
+  let suit;
   let keys = Object.getOwnPropertyNames(hash);
   keys.forEach((property) => {
     if (hash[property] === 2) {
-      pair = property;
+      if (pair === undefined) {
+        pair = property;
+      } else {
+        if (Number(pair) > Number(property)) { // replace if new property is higher
+          // dont set the new prop as highest pair if property is not larger
+        } else {
+          pair = property;
+        }
+      }
     }
   });
-  console.log(hash);
-  if (pair > 0) {
-    return 'High Pair of : ' + pair;
-  } else {
+
+  if (pair !== undefined) {
+    return {match: true, high: pair, suit: suit};
+  }
+  else {
     return false;
   }
 };
 
+let CFHC = (hand) => { // checkForHighCard
+  let res = sortHand(hand);
+  console.log(res[res.length-1][0] + ' high!');
+  return res[res.length-1][0];
+};
 
-function PokerHand(hand) {
-  function evalHand(hand) {
-    let res = hand.split(' ');
-    res = res.sort();
-    return res;
+let handTypes = ['CFHC', 'CFP', 'CFTP', 'CFTOAK', 'CFS', 'CFF', 'CFFH', 'CFOAK', 'CFSF', 'CFRF']; // array with each hand type in ranking low-high
+
+function checkHandVsType(hand, type) { // check hand and return highest value
+  switch (type) {
+    case 'CFRF': // royal flush
+      return CFRF(hand);
+      break;
+    case 'CFSF': // straight flush
+      return CFSF(hand);
+      break;
+    case 'CFOAK': // four of a kind
+      return CFOAK(hand);
+      break;
+    case 'CFFH': // full house
+      return CFFH(hand);
+      break;
+    case 'CFF': // flush
+      return CFF(hand);
+      break;
+    case 'CFS': // straight
+      return CFS(hand);
+      break;
+    case 'CFTOAK': // three of a kind
+      return CFTOAK(hand);
+      break;
+    case 'CFTP':// two pair
+      return CFTP(hand);
+      break;
+    case 'CFP': // pair
+      return CFP(hand);
+      break;
+    case 'CFHC': // high card
+      return CFHC(hand);
+      break;
+    default:
+      return CFHC(hand);
+      break;
+  }
+};
+
+function evalHand(hand) { // returns an object with hand value, highest card, and hand type
+  let match; // if any matches follow to next step
+  let handType;
+
+  for (let i=handTypes.length-1; i>=0;i--) { // decrement down our hands based on highest value handType
+    if (checkHandVsType(hand, handTypes[i])) {
+      handType = handTypes[i];
+      match = checkHandVsType(hand, handTypes[i]); // returns results of eval hand
+      if (match !== undefined) {
+        break; // end loop if any matches occur
+      } else {
+        continue; // otherwise continue looping through hand types
+      }
+    }
+  };
+  let value = handTypes.indexOf(handType);
+  let high = (match.high) ? match.high : undefined;
+  if (match !== undefined) {
+    return {value: value, handType: handType, high: high};
   }
 }
 
-PokerHand.prototype.compareWith = function(hand){
-    return Result.tie;
-}
+function compareHands(ownHand, opposingHand) {
+  let own = evalHand(ownHand);
+  let opponent = evalHand(opposingHand);
+
+  if (own.value > opponent.value) {
+    return 'win';
+  }
+  else if (own.value === opponent.value) {
+    if (values[own.high] > values[opponent.high]) { // own high card is higher
+      return 'win'
+    } else if (values[own.high] < values[opponent.high]) {
+      return 'loss'
+    } else if (values[own.high] === values[opponent.high]) {
+      //check kickers
+      return 'tie';
+    }
+  }
+  else {
+    return 'loss';
+  }
+};
+
+class PokerHand {
+  constructor(hand = null) {
+    this.hand = hand;
+    this.value = evalHand(hand);
+  }
+   compareWith(opponent) { // method allowing us to compare with opponents
+      return Result[compareHands(this.hand, opponent.hand)];
+    };
+  };
