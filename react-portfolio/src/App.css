@@ -41,7 +41,7 @@ main {
   background: #ffffff no-repeat center;
   overflow: hidden;
   border: 1px solid black;
-  margin: auto;
+  margin: 5px auto;
   height: calc(90vh/3);
   position: relative;
   text-align: center;
@@ -49,19 +49,19 @@ main {
 }
 
 .cell1 {
-  width: calc(95vw/4);
+  width: calc(98vw/4);
 }
 
 .cell2 {
-  width: calc(95vw/2);
+  width: calc(98vw/2);
 }
 
 .cell3 {
-  width: calc(95vw*0.75);
+  width: calc(98vw*0.75);
 }
 
 .cell4 {
-  width: calc(95vw);
+  width: calc(100vw);
 }
 
 .cell-text {
