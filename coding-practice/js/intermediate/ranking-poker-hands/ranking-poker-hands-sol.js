@@ -53,7 +53,7 @@
 
 
 
-let Result = { "win": 1, "loss": 2, "tie": 3 };
+let Result = { "win": 1, "loss": 2, "tie": 3 }; // this is a conversion object to return the desired solution to the problem, but can be changed accordingly (ie hooked to a button or another function)
 
 let values = { // object of all the values of each card
   '2':2,
@@ -87,7 +87,7 @@ function evalKicker(kicker) { // takes an array of cards converts them to their 
   kicker.forEach((card => {
     val.push(values[card[0]]);
   }));
-  return val.sort();
+  return val.sort((a,b)=>a-b);
 }
 
 
@@ -98,7 +98,6 @@ let CFRF = (hand) => { //checkForRoyalFlush
 
   if (CFSF(hand)) {
     if (res.join(' ') === royal){
-      console.log('ITS A ROYAL FLUSH BABY of ' + values[suit]);
       return {
         match: true,
         high: res[res.length-1][0],
@@ -135,9 +134,11 @@ let CFOAK = (hand) => { //checkFourOfAKind
   let hash = {};
   let high;
   let suit;
+  let kicker = [];
   res.forEach((card) =>{
     if (hash[card[0]] === undefined) { // initialize prop
       hash[card[0]] = 1;
+      kicker.push(card[0]); // add the card to our kicker for later comparison
     } else {
       hash[card[0]] ++; // increment
     }
@@ -152,7 +153,8 @@ let CFOAK = (hand) => { //checkFourOfAKind
     return {
       match: true,
       high: high,
-      suit: suit
+      suit: suit,
+      kicker: evalKicker(kicker),
     };
   } else {
     return false;
@@ -182,32 +184,36 @@ let CFFH = (hand) => { // checkForFullHouse
   }));
   let high = [tripleValue, pairValue]; // set high value
   let suit; // initialize
+  let kicker = [values[pairValue], values[tripleValue]]; // here we convert it because we want the kicker numbers specific to the triple value vs the pair value in ties
 
   if (pairValue !== undefined && tripleValue !== undefined) {
-    console.log(tripleValue + ' high Full House!');
-    return {match: true, high: high, suit: suit};
+    return {match: true, high: high, suit: suit, kicker: kicker}; // note we did not use our kicker converter because it sorts
   } else {
     return false;
   }
 };
 
+// flushes need to return all cards as kicker
 let CFF = (hand) => { // checkForFlush
   let res = sortHand(hand); // convert hand string to an array of cards
   let suit = res[0][1]; // the flush suit
   let mismatch = 0;
   let high;
+  let kicker = [];
 
   res.forEach((card) => { // push all the suits on to our flush holder
     if (card[1] !==  suit) {
       mismatch++;
     }
+
     high = card[0];
+    kicker.push(card[0]);
   });
 
   if (mismatch > 0) {
     return false;
   } else {
-    return {match: true, high: high, suit: suit};
+    return {match: true, high: high, suit: suit, kicker: evalKicker(kicker)};
   }
 }
 
@@ -272,7 +278,7 @@ let CFTP = (hand) => { // checkForTwoPair
   // create a hash map which will tally up quantities of each value
   let hash = {};
   let pairs = 0;
-  let kicker = [];
+  let kicker = []; // [kicker, pair, pair]
 
   res.forEach((card) => { // generates a hash table which tracks repeats
     if(hash[card[0]] === undefined) {
@@ -427,12 +433,14 @@ function compareHands(ownHand, opposingHand) {
   if (own.value > opponent.value) {
     return 'win';
   }
-  else if (own.value === opponent.value) {
+  else if (own.value === opponent.value) { //tie handtype scenarios
     if (values[own.high] > values[opponent.high]) { // own high card is higher
       return 'win'
-    } else if (values[own.high] < values[opponent.high]) {
+    }
+    else if (values[own.high] < values[opponent.high]) {
       return 'loss'
-    } else if (values[own.high] === values[opponent.high]) {
+    }
+    else if (values[own.high] === values[opponent.high]) { // tie hand value scenario
       if (own.kicker === undefined) {
         return 'tie';
       }
@@ -466,7 +474,7 @@ function compareKickers(ownKicker, opponentKicker) {
         condition = 'loss';
         break;
       } else {
-        if(i!==1) {
+        if(i>1) {
           continue;
         } else {
           condition = 'tie';
