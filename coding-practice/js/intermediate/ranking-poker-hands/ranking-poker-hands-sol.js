@@ -75,13 +75,21 @@ let values = { // object of all the values of each card
   'D': 'Diamonds',
 };
 
+//hand evaluation function return an object {match:boolean, high: string, suit: string}
 function sortHand(hand) { // function that evaluates each card based on the value table
   return hand.split(' ').sort(function(a,b) {
     return values[a[0]]-values[b[0]];
   })
 }
 
-//hand evaluation function return an object {match:boolean, high: string, suit: string}
+function evalKicker(kicker) { // takes an array of cards converts them to their numerical value and returns it as a result
+  let val = [];
+  kicker.forEach((card => {
+    val.push(values[card[0]]);
+  }));
+  return val.sort();
+}
+
 
 let CFRF = (hand) => { //checkForRoyalFlush
   let res = sortHand(hand);
@@ -235,6 +243,7 @@ let CFTOAK = (hand) => { // checkForThreeOfAKind
   // create a hash map which will tally up quantities of each value
   let hash = {};
   let suit;
+  let kicker = [];
 
   res.forEach((card) => {
     if(hash[card[0]] === undefined) {
@@ -247,10 +256,12 @@ let CFTOAK = (hand) => { // checkForThreeOfAKind
   keys.forEach((property) => {
     if (hash[property] === 3) {
       setOfThree = property;
+    } else { // if the number is not a set of 3 go ahead and push it to the kicker incase of ties
+      kicker.push(property);
     }
   });
   if (setOfThree !== undefined) {
-    return {match: true, high: setOfThree, suit: suit};
+    return {match: true, high: setOfThree, suit: suit, kicker: evalKicker(kicker)};
   } else {
     return false;
   }
@@ -261,7 +272,9 @@ let CFTP = (hand) => { // checkForTwoPair
   // create a hash map which will tally up quantities of each value
   let hash = {};
   let pairs = 0;
-  res.forEach((card) => {
+  let kicker = [];
+
+  res.forEach((card) => { // generates a hash table which tracks repeats
     if(hash[card[0]] === undefined) {
       hash[card[0]] = 0; // initialize the property
     }
@@ -271,7 +284,7 @@ let CFTP = (hand) => { // checkForTwoPair
   let suit;
   let keys = Object.getOwnPropertyNames(hash);
 
-  keys.forEach((property) => {
+  keys.forEach((property) => { // iterate through our hash table
     if (hash[property] === 2) {
       pairs++;
       if (pair !== undefined) {
@@ -283,11 +296,13 @@ let CFTP = (hand) => { // checkForTwoPair
           pair = property;
         }
       }
+    } else {
+      kicker.push(property); // pushes any non matching card to kickers
     }
   });
 
   if (pair !== undefined && pairs == 2) {
-    return {match: true, high: pair, suit: suit};
+    return {match: true, high: pair, suit: suit, kicker: evalKicker(kicker)};
   }
   else {
     return false;
@@ -307,6 +322,7 @@ let CFP = (hand) => { // checkForAPair // also checks for two pairs
   let pair;
   let suit;
   let keys = Object.getOwnPropertyNames(hash);
+  let kicker = [];
   keys.forEach((property) => {
     if (hash[property] === 2) {
       if (pair === undefined) {
@@ -319,10 +335,13 @@ let CFP = (hand) => { // checkForAPair // also checks for two pairs
         }
       }
     }
+    else {
+        kicker.push(property);
+      }
   });
 
   if (pair !== undefined) {
-    return {match: true, high: pair, suit: suit};
+    return {match: true, high: pair, suit: suit, kicker: evalKicker(kicker)};
   }
   else {
     return false;
@@ -331,8 +350,11 @@ let CFP = (hand) => { // checkForAPair // also checks for two pairs
 
 let CFHC = (hand) => { // checkForHighCard
   let res = sortHand(hand);
-  console.log(res[res.length-1][0] + ' high!');
-  return res[res.length-1][0];
+  let kicker = [];
+  res.forEach((card) => {
+    kicker.push(values[card[0]]); // pushes kicker values to data obj
+  })
+  return {match: true, high: res[res.length-1][0], kicker: kicker}
 };
 
 let handTypes = ['CFHC', 'CFP', 'CFTP', 'CFTOAK', 'CFS', 'CFF', 'CFFH', 'CFOAK', 'CFSF', 'CFRF']; // array with each hand type in ranking low-high
@@ -392,8 +414,9 @@ function evalHand(hand) { // returns an object with hand value, highest card, an
   };
   let value = handTypes.indexOf(handType);
   let high = (match.high) ? match.high : undefined;
+  let kicker = match.kicker ? match.kicker : undefined;
   if (match !== undefined) {
-    return {value: value, handType: handType, high: high};
+    return {value: value, handType: handType, high: high, kicker: kicker};
   }
 }
 
@@ -410,13 +433,51 @@ function compareHands(ownHand, opposingHand) {
     } else if (values[own.high] < values[opponent.high]) {
       return 'loss'
     } else if (values[own.high] === values[opponent.high]) {
-      //check kickers
-      return 'tie';
+      if (own.kicker === undefined) {
+        return 'tie';
+      }
+      if (compareKickers(own.kicker, opponent.kicker) === 'win') {
+        return 'win';
+      } else if (compareKickers(own.kicker, opponent.kicker) === 'loss') {
+        return 'loss';
+      } else if (compareKickers(own.kicker, opponent.kicker) === 'tie') {
+        return 'tie';
+      } else {
+        return compareKickers(own.kicker, opponent.kicker);
+      }
     }
   }
   else {
     return 'loss';
   }
+};
+/**
+ * hook up compareKickers to compare hands
+ */
+
+function compareKickers(ownKicker, opponentKicker) {
+  // win loss tie
+  let condition;
+  if (ownKicker.length !== opponentKicker.length) { // return an error if the kickers don't match lengths
+    return 'error kicker lengths not matching';
+  } else {
+    for (let i = ownKicker.length-1; i>=0; i--) { //decrement from the highest kicker value
+      if (ownKicker[i] > opponentKicker[i]) {
+        condition = 'win';
+        break;
+      } else if (ownKicker[i] < opponentKicker[i]) {
+        condition = 'loss';
+        break;
+      } else {
+        if(i!==1) {
+          continue;
+        } else {
+          condition = 'tie';
+        }
+      }
+    }
+  }
+  return condition;
 };
 
 class PokerHand {
