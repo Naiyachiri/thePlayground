@@ -494,3 +494,57 @@ class PokerHand { // class declaration that allows us to construct hand objects 
       return Result[compareHands(this.hand, opponent.hand)];
     };
   };
+
+
+  // other solutions, note that most only had a total of <5 votes
+
+  // solution I liked most
+  // the reason I like it is it because it is well organized, I do not however like the variables being single letters-- I prefer variable names that are more explanatory, so that anyone can pick up the code and understand it.
+  // it is very clean and all of the testing functions are in one location, all of the hand types are ordered and arranged in one location
+
+const face_number = {T: 10, J: 11, Q: 12, K: 13, A: 14}
+const card_number = (x) => face_number[x[0]] || +x[0]
+const cards_to_numbers = (h) => h.split(" ").map(card_number)
+const numbers_in_sequence = (arr) => arr.reduce((a,c)=>a+c) == arr.length * (2*arr[0] + arr.length - 1) / 2
+const straight = (h) => numbers_in_sequence(cards_to_numbers(h).reverse())
+const flush = (h) => /^.(.) .\1 .\1 .\1 .\1$/.test(h)
+const sort_cards = (h) => h.split(' ').sort((a,b)=>card_number(b)-card_number(a)).join(' ')
+const match_res = (m) => m == null ? null : m[0]
+const highest_card = (h) => h.slice(0,2)
+
+var order = [ // regex is certainly a good way to match with all the different hand types
+  // dissecting the contents, each element of order is an object with two props; 'n' for name and 'f' for applying a function to (x)
+  {n:"straight_flush", f:x => straight(x) && flush(x) ? x : null},
+  {n:"four",           f:x => match_res(x.match(/(.). \1. \1. \1./))}, // searched for 4 matching inital chars separated by a single space(note: this method is then reapplied to any hand requiring repeat card values)
+  {n:"full_house",     f:x => match_res(x.match(/(.). \1. \1. (.). \2./) || x.match(/(.). \1. (.). \2. \2./))},
+  {n:"flush",          f:x => flush(x) ? x : null}, // note this uses a custom function to return t/f
+  {n:"straight",       f:x => straight(x) ? x : null}, // just like flush the function can be found above as a const
+  {n:"three",          f:x => match_res(x.match(/(.). \1. \1./))},
+  {n:"two_pair",       f:x => match_res(x.match(/.*(.). \1..*(.). \2..*/))},
+  {n:"one_pair",       f:x => match_res(x.match(/.*(.). \1..*/))},
+  {n:"highest_card",   f:x => x},
+]
+
+const find_sorted_hand = (h) => {
+  for(var i = 0; i < order.length; i++) {
+    var res = order[i].f(h)
+    if(res != null) return { i: i, res: res, name: order[i].n }
+  }}
+const find_hand = (h) => find_sorted_hand(sort_cards(h))
+
+const Result = { win: 1, loss: 2, tie: 3 }
+
+function PokerHand(hand) {
+  this.hand = find_hand(hand);
+  this.high_to_low = cards_to_numbers(sort_cards(hand))
+}
+
+PokerHand.prototype.compareWith = function(other){
+  if(this.hand.i < other.hand.i) return Result.win;
+  if(this.hand.i > other.hand.i) return Result.loss;
+  for(var i=0;i<5;i++) {
+    if(this.high_to_low[i] > other.high_to_low[i]) return Result.win;
+    if(this.high_to_low[i] < other.high_to_low[i]) return Result.loss;
+  }
+  return Result.tie;
+}
