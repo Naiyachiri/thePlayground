@@ -451,9 +451,6 @@ function compareHands(ownHand, opposingHand) {
     return 'loss';
   }
 };
-/**
- * hook up compareKickers to compare hands
- */
 
 function compareKickers(ownKicker, opponentKicker) {
   // win loss tie
@@ -480,7 +477,7 @@ function compareKickers(ownKicker, opponentKicker) {
   return condition;
 };
 
-class PokerHand {
+class PokerHand { // class declaration that allows us to construct hand objects which can compare themselves with other hand objects
   constructor(hand = null) {
     this.hand = hand;
     this.value = evalHand(hand);
