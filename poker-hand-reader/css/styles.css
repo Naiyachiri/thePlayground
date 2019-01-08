@@ -1,0 +1,35 @@
+/* DROPDOWN RESULT STYLES */
+.card-dropdown-results {
+  display: none;
+  max-height: 500px;
+  max-width: 300px;
+  overflow: scroll-y;
+  margin: 0;
+  padding: 0;
+}
+
+.card-dropdown-results ul { /*split into columns*/
+  -moz-column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 20px;
+  column-count: 4;
+  column-gap: 20px;
+}
+
+.card-dropdown-results li {
+  text-align: center;
+  list-style-type: none;
+  border: 1px black solid;
+}
+
+/* CARD IMAGE STYLES*/
+.card-img {
+  width: 300px;
+  height: auto;
+}
+
+/*GLOBAL CLASSES*/
+.show {
+  display:block;
+}
