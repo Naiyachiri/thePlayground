@@ -1,0 +1,47 @@
+<!DOCTTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <title>Poker Hand Guide</title>
+    <link rel='stylesheet' href='./css/styles.css'>
+  </head>
+  <body>
+    <header id='ui-bar'>
+      <!-- bells and whistles to modify and create hand -->
+      <div id='add-card-dropdwn'>
+        <button onClick='drpdwn()' class='dropdwn-btn'>Select Card</button>
+        <div class='card-dropdown-results' id='card-dropdown'>
+          <input type='text' placeholder='Search Card...' id='card-dropdwn-query' onkeyup='filterCard(event)'>
+          <ul>
+            <li>2H</li><li>2D</li><li>2S</li><li>2C</li>
+            <li>3H</li><li>3D</li><li>3S</li><li>3C</li>
+            <li>4H</li><li>4D</li><li>4S</li><li>4C</li>
+            <li>5H</li><li>5D</li><li>5S</li><li>5C</li>
+            <li>6H</li><li>6D</li><li>6S</li><li>6C</li>
+            <li>7H</li><li>7D</li><li>7S</li><li>7C</li>
+            <li>8H</li><li>8D</li><li>8S</li><li>8C</li>
+            <li>9H</li><li>9D</li><li>9S</li><li>9C</li>
+            <li>10H</li><li>10D</li><li>10S</li><li>10C</li>
+            <li>JH</li><li>JD</li><li>JS</li><li>JC</li>
+            <li>QH</li><li>QD</li><li>QS</li><li>QC</li>
+            <li>KH</li><li>KD</li><li>KS</li><li>KC</li>
+            <li>AH</li><li>AD</li><li>AS</li><li>AC</li>
+          </ul>
+      </div>
+      </div>
+    </header>
+    <content id='hand'>
+      <!-- current hand -->
+      <img src='./img/joker.svg' alt='unpicked card placeholder' class='card-img'>
+      <img src='./img/joker.svg' alt='unpicked card placeholder' class='card-img'>
+      <img src='./img/joker.svg' alt='unpicked card placeholder' class='card-img'>
+      <img src='./img/joker.svg' alt='unpicked card placeholder' class='card-img'>
+      <img src='./img/joker.svg' alt='unpicked card placeholder' class='card-img'>
+    </content>
+    <footer id='response'>
+      <!-- errors, hand evaluations, response -->
+    </footer>
+  </body>
+  <script src='js/guide.js'></script>
+  <script src='js/card-dropdown.js'></script>
+</html>
