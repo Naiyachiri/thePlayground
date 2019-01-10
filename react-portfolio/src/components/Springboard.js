@@ -59,7 +59,27 @@ class Springboard extends Component {
           <div className='cell-text cell-header'>
             <h3>Recent Activity: </h3>
           </div>
-          <div className='cell-blog-content'>
+        <div className='cell-blog-content'>
+          <h4 className='cell-blog-subheading'>18 Dec 2018: </h4>
+            <p className='cell-blog-article'>
+              Added coding-practice: ranking-poker-hands
+            </p>
+          <h4 className='cell-blog-subheading'>14 Dec 2018: </h4>
+            <p className='cell-blog-article'>
+              Added coding-practice: the-observed-pin
+            </p>
+          <h4 className='cell-blog-subheading'>12 Dec 2018: </h4>
+            <p className='cell-blog-article'>
+              Added coding-practice: extract-domain-name
+            </p>
+          <h4 className="cell-blog-subheading">10 Dec 2018: </h4>
+            <p className="cell-blog-article">
+              Added coding-practice: regex-pw-validation
+            </p>
+            <h4 className='cell-blog-subheading'>8 Dec 2018: </h4>
+            <p className='cell-blog-article'>
+              Added coding-practice: direction-reduction
+            </p>
           <h4 className='cell-blog-subheading'>6 Dec 2018: </h4>
             <p className='cell-blog-article'>
               Added coding-practice: scramblies
@@ -91,7 +111,13 @@ class Springboard extends Component {
           </div>
         </div>
 
-        <div className='cell cell3'>cell 10, 11, 12</div>
+        <div className='cell cell3' id='fend-arcade-game-cell'>
+        <div className='cell-header'>
+          <a className='cell-link project-link' id='fend-arcade-game-link' href='https://naiyachiri.github.io/fend-arcade-game' rel='noopener noreferrer'  data-tool-tip='This is a bootleg frogger game that runs off jQuery and functions by constantly re-rendering the image to simulate movement' target='_blank'>
+            FEND Arcade Game
+          </a>
+          </div>
+        </div>
       </section>
     );
   }
