@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Nav />
         <main>
-          <Route exact path='/' component={Springboard}/>
+          <Route exact path={process.env.PUBLIC_URL + '/'} component={Springboard}/>
         </main>
       </div>
     );
