@@ -1,0 +1,8 @@
+# Special Characters
+\h the host name up to the first .
+\n newline
+\s name of the shell
+\t current time in 24H format
+\u username of the current username
+\w the current working directory
+\W the base name of the current working developer

@@ -2,6 +2,15 @@
 
 The purpose of this folder and contents is to give me a sub repository of subject matter I am working on relating to my summer internship of 2019
 
+## WIP
+
+1. understanding maven builder
+    - I dont understand the classpath error, which is likely responsible for maven being unable to detect the tests
+2. class path issue
+    - begin taking a tutorial on java
+        - goal: finish code academy java tutorial (or elsewhere if codeacademy hasn't )
+
+
 ## Focus Contents
 
 1.  Building out a RESTful API with Tomcat and Java
