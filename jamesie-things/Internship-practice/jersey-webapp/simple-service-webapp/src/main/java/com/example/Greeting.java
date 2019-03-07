@@ -9,7 +9,7 @@ import javax.ws.rs.PathParam;
  * Root resource (exposed at "myput" path)
  */
 @Path("greeting/{username}")
-public class MyPut {
+public class Greeting {
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
